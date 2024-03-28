@@ -1,6 +1,7 @@
 @import "../common/variables.css";
 
 .header__wrapper {
+  position: fixed;
   background: var(--color-white);
   width: 100vw;
   display: grid;

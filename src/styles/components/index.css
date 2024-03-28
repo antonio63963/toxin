@@ -13,7 +13,10 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  display: grid;
+  justify-items: center;
+}
 ul {
   list-style: none;
   color: var(--color-black50)

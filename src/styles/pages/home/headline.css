@@ -1,0 +1,19 @@
+.headline {
+  background-image: url(../../../assets/img/image3.jpg);
+  width: 100%;
+  max-width: var(--app-width);
+  height: 90rem;
+  min-height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.headline__text {
+  font-size: 14px;
+  color: var(--color-black75);
+  max-width: 297px;
+  text-align: end;
+  margin: 18px 13.4rem;
+}
