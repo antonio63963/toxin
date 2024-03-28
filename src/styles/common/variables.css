@@ -1,0 +1,20 @@
+:root {
+  --color-primary: #8ba4f9;
+  --color-secondary: #66D2EA;
+  --color-white: #fff;
+  --color-black: #1f2041;
+  --color-black-50: #801f2041;
+  --color-black-75: #bf1f2041;
+  --primary-gradient: linear-gradient(#bc9cff, #8ba4f9);
+  --secondary-gradient: linear-gradient(#6fcf97, #66d2ea);
+
+  --app-width: 1440px;
+  --app-h-padding: 140px;
+
+  /* brakepoints */
+  --mobileXL: 576px;
+  --mobile: 768px;
+  --tablet: 992px;
+  --desktop: 1200px;
+  --desktopXL: 1400px;
+}

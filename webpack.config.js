@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV == "production";
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
-const fileName = ["index", "login"];
+const fileName = ["index", "login", "rooms", "roomDetails"];
 
 const config = {
   context: path.resolve(__dirname, "./src"),
@@ -22,18 +22,25 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
+    hot: false,
   },
   plugins: [new MiniCssExtractPlugin()].concat(
     fileName.map(
       (file) =>
         new HtmlWebpackPlugin({
-          template: `./${file}.html`,
+          template:
+            file == "index" ? `./index.html` : `./pages/${file}/${file}.html`,
+          // `./${file}.html`,
           inject: "head",
-          filename: `./${file}.html`,
+          filename:
+            file == "index"
+              ? `./index.html`
+              : `./pages/${file}/${file}.html`,
+          // `./${file}.html`,
           chunks: [file],
         })
     )
-  ),
+  ).filter(Boolean),
   module: {
     rules: [
       {
@@ -52,9 +59,10 @@ const config = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: "asset",
       },
-
-      // Add your rules for custom modules here
-      // Learn more about loaders from https://webpack.js.org/loaders/
+      // {
+      //   test: /\.(html)$/i,
+      //   loader: ["hmtl-loader"],
+      // },
     ],
   },
 };

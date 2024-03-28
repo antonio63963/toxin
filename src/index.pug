@@ -1,0 +1,26 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Toxin
+    link(rel="stylesheet", type="text/css", href="./styles/pages/home/index.css")
+  body 
+    div.header__wrapper
+      header.header
+        img(class="header__logo", src="./assets/svg/logo.svg", alt="toxin-logo") 
+        nav.header__nav
+          ul.nav-list
+            li.nav-list__link О нас
+            li.nav-list__link
+              .nav-list__details Услуги 
+                img(src="./assets/svg/expand_more.svg", alt="Список услуг") 
+            li.nav-list__link Вакансии
+            li.nav-list__link Новости
+            li.nav-list__link 
+              .nav-list__details Соглашения
+                img(src="./assets/svg/expand_more.svg", alt="Список соглашений") 
+          button.outlined-button.header__login-button Войти
+          button.filled-button.header__signUp-button Зарегистрироваться
+          img(class="nav-list__icon-burger", src="./assets/svg/burger.svg", alt="menu")
+      
