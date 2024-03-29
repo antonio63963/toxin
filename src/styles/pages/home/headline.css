@@ -17,3 +17,34 @@
   text-align: end;
   margin: 18px 13.4rem;
 }
+/* Form */
+.search-form {
+  margin-top: 110px;
+  margin-left: 14rem;     
+  align-self: flex-start;
+  background-color: var(--color-white);
+  padding: 40px 30px 30px 30px;
+  border-radius: 4px;
+}
+.search-form__title {
+  /* font-family: Montserrat; */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.serch-form__input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.search-form__input-arive {
+  font-size: 14px;
+  color: var(--color-black50);
+  text-transform: uppercase;
+  font-family: Montserrat;
+  padding: 12px 16px;
+}

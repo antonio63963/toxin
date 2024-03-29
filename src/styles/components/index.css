@@ -2,6 +2,7 @@
 @import '../common/fonts.css';
 @import './footer.css';
 @import './header.css';
+@import './inputs.css';
 
 html {
   font-size: calc(1vw / 14.4 * 9);

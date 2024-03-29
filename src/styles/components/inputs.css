@@ -1,0 +1,12 @@
+.input-date::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0;
+}
+.input-date {
+  border-radius: 4px;
+  border-color: var(--color-black-50);
+  color: var(--color-black-50);
+  background: url('../../assets/svg/expand_more.svg');
+  background-repeat: no-repeat; 
+  background-position: 95% 50%;  
+}
