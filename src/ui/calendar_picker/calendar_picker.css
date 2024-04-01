@@ -93,7 +93,7 @@ div.date-container__current-date {
   font-weight: bold;
 }
 div.date-container__selected-date {
-  background: var(--secondary-primary);
+  background: var(--primary-gradient);
   color: var(--color-white);
   font-weight: bold;
 }
