@@ -110,7 +110,7 @@ function onBackMonth() {
   insertDates(selectedYear, selectedMonth);
 }
 
-// monthForward.addEventListener("click", onForwardMonth);
-// monthBack.addEventListener("click", onBackMonth);
+monthForward.addEventListener("click", onForwardMonth);
+monthBack.addEventListener("click", onBackMonth);
 
 insertDates(selectedYear, selectedMonth);

@@ -1,30 +1,40 @@
+mixin date-picker(label)
+  .picker__select(class!= attributes.class)
+    .picker__select_label= label
+    .picker__select_field
+      span.picker__select_date ДД.ММ.ГГГГ
+      img(src="assets/svg/expand_more.svg")
+
+mixin weekDay(day)
+  .calendar__week_day= day
+
+mixin iconButton(iconPath, alt)
+  button.text-button(class!= attributes.class) 
+        img.calendar__prew-month(src=iconPath, alt=alt)
+
+mixin textButton(text)
+  button.text-button(class!= attributes.class)= text
+
 .picker 
-  .picker__select.arive 
-    .picker__select_label Прибытие
-    .picker__select_field
-      span.picker__select_date ДД.ММ.ГГГГ
-      img(src="assets/svg/expand_more.svg")
-  .picker__select 
-    .picker__select_label Выезд
-    .picker__select_field
-      span.picker__select_date ДД.ММ.ГГГГ
-      img(src="assets/svg/expand_more.svg")
+  +date-picker('Прибытие')(class="arive")
+  +date-picker('Выезд')(class="leave")
   .calendar 
     .calendar__top 
-      button.text-button.calendar__back 
-        img.calendar__prew-month(src="assets/svg/arrow_back.svg", alt="arrow-back")
+      +iconButton("assets/svg/arrow_back.svg", arrow-back)(class="calendar__back")
       h2.calendar__title Month 
-      button.text-button.calendar__forward 
-        img.calendar__prew-month(src="assets/svg/arrow_forward.svg", alt="arrow-forward")
+      +iconButton("assets/svg/arrow_forward.svg", arrow-forward)(class="calendar__forward")
     .calendar__week 
-      .calendar__week_day Пн
-      .calendar__week_day Вт
-      .calendar__week_day Ср
-      .calendar__week_day Чт
-      .calendar__week_day Пт
-      .calendar__week_day Сб
-      .calendar__week_day Вс
+      +weekDay('Пн')
+      +weekDay('Вт')
+      +weekDay('Ср')
+      +weekDay('Чт')
+      +weekDay('Пт')
+      +weekDay('Сб')
+      +weekDay('Вс')
     .calendar__dates-row 
     .calendar__buttons-row 
-      button.text-button.calendar__button-cancel Очистить
-      button.text-button.calendar__button-submit Применить
+      +textButton('Очистить')(class="calendar__button-cancel")
+      +textButton('Применить')(class="calendar__button-submit")
+
+script 
+  include calendar_picker.js 

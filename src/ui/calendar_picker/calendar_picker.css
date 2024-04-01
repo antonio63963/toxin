@@ -121,5 +121,5 @@ div.date-container__selected-date {
   text-transform: uppercase;
 }
 .text-button:hover {
-  background-color: lightgrey;
+  background-color: var(--color-black-5);
 }
