@@ -1,9 +1,12 @@
+@import '../../../ui/calendar_picker/calendar_picker.css';
+
 .headline {
   background-image: url(../../../assets/img/image3.jpg);
   width: 100%;
+  min-height: 720px;
   max-width: var(--app-width);
   height: 90rem;
-  min-height: 360px;
+  /* min-height: 360px; */
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -19,6 +22,7 @@
 }
 /* Form */
 .search-form {
+  width: 380px;
   margin-top: 110px;
   margin-left: 14rem;     
   align-self: flex-start;
@@ -34,17 +38,4 @@
 .serch-form__input-wrapper {
   display: flex;
   flex-direction: column;
-}
-.label {
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-.search-form__input-arive {
-  font-size: 14px;
-  color: var(--color-black50);
-  text-transform: uppercase;
-  font-family: Montserrat;
-  padding: 12px 16px;
 }

@@ -1,4 +1,6 @@
-@import "../common/variables.css";
+@import "../../common/variables.css";
+@import "../index.css";
+
 
 .header__wrapper {
   position: fixed;

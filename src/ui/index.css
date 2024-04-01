@@ -1,8 +1,8 @@
-@import '../common/variables.css';
-@import '../common/fonts.css';
-@import './footer.css';
-@import './header.css';
-@import './inputs.css';
+@import "../common/variables.css";
+@import "../common/fonts.css";
+@import "./footer/footer.css";
+@import "./header/header.css";
+/* @import "./inputs.css"; */
 
 html {
   font-size: calc(1vw / 14.4 * 9);
@@ -17,12 +17,23 @@ html {
 body {
   display: grid;
   justify-items: center;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 1.9rem;
+}
+h3 {
+  font-size: 12px;
 }
 ul {
   list-style: none;
-  color: var(--color-black50)
+  color: var(--color-black50);
 }
-ul>li {
+ul > li {
   text-transform: capitalize;
   font-size: 14px;
   color: var(--color-black50);
@@ -40,7 +51,7 @@ button {
   border-radius: 22px;
   cursor: pointer;
 }
-.outlined-button { 
+.outlined-button {
   color: var(--color-primary);
   border-width: 2px;
   border-style: solid;
@@ -48,28 +59,29 @@ button {
   background-clip: content-box;
   background: transparent;
   max-height: 34px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .filled-button {
   padding: 10px 20px;
   color: var(--color-white);
   background-image: var(--primary-gradient);
   max-height: 34px;
-  transition: all .4s ease-in;
+  transition: all 0.4s ease-in;
 }
 .filled-button:hover {
   background-image: var(--secondary-gradient);
 }
-.outlined-button:hover{
+.outlined-button:hover {
   background-image: var(--secondary-gradient);
   background: transparent;
-  color: var(--color-secondary)
+  color: var(--color-secondary);
 }
 
-
-
 @media screen and(min-width: var(--desktopXL)) {
-  .header {
-    padding: 15px 140px;
+  h1 {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 19px;
   }
 }

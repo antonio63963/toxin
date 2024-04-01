@@ -1,0 +1,30 @@
+.picker 
+  .picker__select.arive 
+    .picker__select_label Прибытие
+    .picker__select_field
+      span.picker__select_date ДД.ММ.ГГГГ
+      img(src="assets/svg/expand_more.svg")
+  .picker__select 
+    .picker__select_label Выезд
+    .picker__select_field
+      span.picker__select_date ДД.ММ.ГГГГ
+      img(src="assets/svg/expand_more.svg")
+  .calendar 
+    .calendar__top 
+      button.text-button.calendar__back 
+        img.calendar__prew-month(src="assets/svg/arrow_back.svg", alt="arrow-back")
+      h2.calendar__title Month 
+      button.text-button.calendar__forward 
+        img.calendar__prew-month(src="assets/svg/arrow_forward.svg", alt="arrow-forward")
+    .calendar__week 
+      .calendar__week_day Пн
+      .calendar__week_day Вт
+      .calendar__week_day Ср
+      .calendar__week_day Чт
+      .calendar__week_day Пт
+      .calendar__week_day Сб
+      .calendar__week_day Вс
+    .calendar__dates-row 
+    .calendar__buttons-row 
+      button.text-button.calendar__button-cancel Очистить
+      button.text-button.calendar__button-submit Применить
