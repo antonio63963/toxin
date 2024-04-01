@@ -9,7 +9,8 @@ let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
 let selectedMonth = currentMonth;
 let selectedYear = currentYear;
-let selectedDate = null;
+let selectedDate1 = null;
+let selectedDate2 = null;
 
 console.log(currentYear, currentMonth, currentDate);
 
@@ -95,10 +96,18 @@ function insertDates(year, month) {
       dateBg.classList.add("date-container__current-date");
     }
     if (
-      selectedDate != null &&
-      dateObject.year == selectedDate.getUTCFullYear() &&
-      dateObject.monthIndex == selectedDate.getMonth() &&
-      dateObject.date == selectedDate.getDate()
+      selectedDate1 != null &&
+      dateObject.year == selectedDate1.getUTCFullYear() &&
+      dateObject.monthIndex == selectedDate1.getMonth() &&
+      dateObject.date == selectedDate1.getDate()
+    ) {
+      dateBg.classList.add("date-container__selected-date");
+    }
+    if (
+      selectedDate2 != null &&
+      dateObject.year == selectedDate2.getUTCFullYear() &&
+      dateObject.monthIndex == selectedDate2.getMonth() &&
+      dateObject.date == selectedDate2.getDate()
     ) {
       dateBg.classList.add("date-container__selected-date");
     }
@@ -114,6 +123,24 @@ function insertDates(year, month) {
   calendarTitle.textContent = `${monthes[month]} ${year}`;
 }
 
+//helpers
+function defineStartAndEnd(targetDate) {
+  if(selectedDate1 && compareDates(selectedDate1, targetDate)) {
+    selectedDate1 = null;
+    return;
+  } else if(selectedDate2 && compareDates(selectedDate2, targetDate)) {
+    selectedDate2 = null;
+    return;
+  }
+  else if(!selectedDate1 && !selectedDate2 || !selectedDate1 && selectedDate2 && !compareDates(selectedDate2, targetDate)) {
+    selectedDate1 = targetDate
+    return;
+  } else  {
+    selectedDate2 = targetDate;
+    return;
+  } 
+}
+
 // Handlers
 
 function onForwardMonth() {
@@ -125,22 +152,19 @@ function onBackMonth() {
   selectedMonth--;
   insertDates(selectedYear, selectedMonth);
 }
-function onAriveDate(e) {
+function onDate(e) {
   const targetDate = new Date(
     selectedYear,
     selectedMonth,
     e.target.textContent
   );
-  selectedDate =
-    selectedDate != null && compareDates(selectedDate, targetDate)
-      ? null
-      : targetDate;
+  defineStartAndEnd(targetDate);
   const bgElement = e.target.classList.toggle(".date-container__bg");
   insertDates(selectedYear, selectedMonth);
 }
 
 monthForward.addEventListener("click", onForwardMonth);
 monthBack.addEventListener("click", onBackMonth);
-datesRowElement.addEventListener("click", onAriveDate);
+datesRowElement.addEventListener("click", onDate);
 
 insertDates(selectedYear, selectedMonth);
