@@ -100,6 +100,16 @@ function getMonthDays(year, monthIndex) {
 function createDateElement(dateObject) {
   const dateContainer = document.createElement("div");
   dateContainer.classList.add("date-container");
+  if(dateObject.isLivingDay) {
+    dateContainer.classList.add("date_container__living-day");
+  }
+  if(dateObject.isStartDay && dateObject.isLivingDay) {
+    dateContainer.classList.add("date-container__start");
+  }
+  if(dateObject.isFinishDay && dateObject.isLivingDay) {
+    dateContainer.classList.add("date-container__finish");
+  }
+
   const dateBg = document.createElement("div");
   const dateValue = document.createElement("span");
   dateValue.textContent = dateObject.date;
