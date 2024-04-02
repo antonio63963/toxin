@@ -7,9 +7,13 @@ const selectDateElement = document.querySelector(".calendar__title");
 const currentDate = new Date().getDate();
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
-const currentDateInMilliseconds = new Date(currentYear, currentMonth, currentDate).getTime();
-console.log(currentDateInMilliseconds)
-console.log(new Date(currentDateInMilliseconds))
+const currentDateInMilliseconds = new Date(
+  currentYear,
+  currentMonth,
+  currentDate
+).getTime();
+console.log(currentDateInMilliseconds);
+console.log(new Date(currentDateInMilliseconds));
 let selectedMonth = currentMonth;
 let selectedYear = currentYear;
 let selectedDate1 = null;
@@ -32,7 +36,6 @@ const monthes = [
   "Ноябрь",
   "Декабрь",
 ];
-const weekDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 
 function compareDates(date1, date2) {
   console.log(date1, date2);
@@ -55,17 +58,11 @@ function getDateObj(year, monthIndex, dateDay) {
     date: dateDay,
     monthIndex: monthIndex,
     year: year,
-    milliseconds: dateInMilliseconds,
+    dateInMilliseconds: dateInMilliseconds,
     isCurrentDay: dateInMilliseconds == currentDateInMilliseconds,
     isLivingDay: isLivingDate(year, monthIndex, dateDay),
     isStartDay: start ? start.getTime() === dateInMilliseconds : false,
-    isFinishDay:
-      startAndFinishDates.length &&
-      startAndFinishDates[1] &&
-      !this.isStartDay &&
-      year === end.getUTCFullYear() &&
-      monthIndex === end.getMonth() &&
-      dateDay === end.getDate(),
+    isFinishDay: end ? end.getTime() === dateInMilliseconds : false,
   };
 }
 
@@ -106,18 +103,6 @@ function createDateElement(dateObject, idx) {
   if (idx == 6 || (idx + 1) % 7 == 0) {
     dateContainer.classList.add("date-container__round-finish-row");
   }
-  // if (idx == 0 || idx % 7 == 0) {
-  //   dateContainer.classList.add("date-container__round-start-row");
-  // }
-  // if (idx == 6 || (idx + 1) % 7 == 0) {
-  //   dateContainer.classList.add("date-container__round-finish-row");
-  // }
-  // if (idx == 0 || idx % 7 == 0) {
-  //   dateContainer.classList.add("date-container__round-start-row");
-  // }
-  // if (idx == 6 || (idx + 1) % 7 == 0) {
-  //   dateContainer.classList.add("date-container__round-finish-row");
-  // }
   if (dateObject.isLivingDay) {
     dateContainer.classList.add("date_container__living-day");
   }
