@@ -90,7 +90,7 @@ function getMonthDays(year, monthIndex) {
   for (let i = 0; i < lastMonthDay; i++) {
     calendarMonthDays.push(getDateObj(year, monthIndex, 1 + i));
   }
-  for(let i = 0; i < nexMonthDaysAmount; i++) {
+  for (let i = 0; i < nexMonthDaysAmount; i++) {
     calendarMonthDays.push(getDateObj(year, monthIndex + 1, i + 1));
   }
   console.log("Month days: ", calendarMonthDays);
@@ -110,27 +110,10 @@ function createDateElement(dateObject) {
   } else {
     dateBg.classList.add("date-container__month-days");
   }
-  if (
-    dateObject.year == currentYear &&
-    dateObject.monthIndex == currentMonth &&
-    dateObject.date == currentDate
-  ) {
+  if (dateObject.isCurrentDay) {
     dateBg.classList.add("date-container__current-date");
   }
-  if (
-    selectedDate1 != null &&
-    dateObject.year == selectedDate1.getUTCFullYear() &&
-    dateObject.monthIndex == selectedDate1.getMonth() &&
-    dateObject.date == selectedDate1.getDate()
-  ) {
-    dateBg.classList.add("date-container__selected-date");
-  }
-  if (
-    selectedDate2 != null &&
-    dateObject.year == selectedDate2.getUTCFullYear() &&
-    dateObject.monthIndex == selectedDate2.getMonth() &&
-    dateObject.date == selectedDate2.getDate()
-  ) {
+  if (dateObject.isStartDay || dateObject.isFinishDay) {
     dateBg.classList.add("date-container__selected-date");
   }
   dateBg.appendChild(dateValue);
@@ -169,9 +152,9 @@ function defineSelectedDates(targetDate) {
 }
 
 function getStartAndFinishDates() {
-  if (!selectedDate1 && !selectedDate2) return []; 
-  if(!selectedDate1 && selectedDate2) return [selectedDate2];
-  if(selectedDate1 && !selectedDate2) return [selectedDate1];
+  if (!selectedDate1 && !selectedDate2) return [];
+  if (!selectedDate1 && selectedDate2) return [selectedDate2];
+  if (selectedDate1 && !selectedDate2) return [selectedDate1];
   const year1 = selectedDate1.getUTCFullYear();
   const year2 = selectedDate2.getUTCFullYear();
   const month1 = selectedDate1.getMonth();
@@ -191,7 +174,7 @@ function getStartAndFinishDates() {
 
 function isLivingDate(year, monthIndex, dateDay) {
   if (startAndFinishDates.length < 2) return false;
-  console.log(startAndFinishDates.length)
+  console.log(startAndFinishDates.length);
   const [start, end] = startAndFinishDates;
   if (
     year >= start.getUTCFullYear() &&
@@ -224,7 +207,7 @@ function onDate(e) {
   );
   defineSelectedDates(targetDate);
   startAndFinishDates = getStartAndFinishDates();
-  console.log(startAndFinishDates)
+  console.log(startAndFinishDates);
   const bgElement = e.target.classList.toggle(".date-container__bg");
   insertDates(selectedYear, selectedMonth);
 }
