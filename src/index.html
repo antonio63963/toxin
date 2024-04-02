@@ -32,6 +32,7 @@ const monthes = [
 const weekDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 
 function compareDates(date1, date2) {
+  console.log(date1, date2);
   return (
     date1.getDate() === date2.getDate() &&
     date1.getUTCFullYear() === date2.getUTCFullYear() &&
@@ -40,7 +41,7 @@ function compareDates(date1, date2) {
 }
 
 function getLastDayOfMonth(year, month) {
-  let date = new Date(year, month, 0); // date from next month
+  let date = new Date(year, month + 1, 0); // date from next month
   return date.getDate();
 }
 
@@ -75,11 +76,12 @@ function getDateObj(year, monthIndex, dateDay) {
 function getMonthDays(year, monthIndex) {
   const firstWeekDayIndex = new Date(year, monthIndex, 1).getDay();
   const calendarMonthDays = [];
+  //prefix days
   if (firstWeekDayIndex > 0) {
-    const lastPrevMonthDate = getLastDayOfMonth(year, monthIndex);
+    const lastPrevMonthDate = getLastDayOfMonth(year, monthIndex -1);
     const prevMonthIndex = monthIndex - 1;
     for (let i = 0; i < firstWeekDayIndex - 1; i++) {
-      calendarMonthDays.push(
+      calendarMonthDays.unshift(
         getDateObj(year, prevMonthIndex, lastPrevMonthDate - i)
       );
     }
@@ -90,6 +92,7 @@ function getMonthDays(year, monthIndex) {
   for (let i = 0; i < lastMonthDay; i++) {
     calendarMonthDays.push(getDateObj(year, monthIndex, 1 + i));
   }
+  //suffix days
   for (let i = 0; i < nexMonthDaysAmount; i++) {
     calendarMonthDays.push(getDateObj(year, monthIndex + 1, i + 1));
   }
@@ -97,16 +100,35 @@ function getMonthDays(year, monthIndex) {
   return calendarMonthDays;
 }
 
-function createDateElement(dateObject) {
+function createDateElement(dateObject, idx) {
   const dateContainer = document.createElement("div");
   dateContainer.classList.add("date-container");
-  if(dateObject.isLivingDay) {
+  dateContainer.dataset.date = `${dateObject.date}-${dateObject.monthIndex}-${dateObject.year}`;
+  if (idx == 0 || idx % 7 == 0) {
+    dateContainer.classList.add("date-container__round-start-row");
+  }
+  if (idx == 6 || (idx + 1) % 7 == 0) {
+    dateContainer.classList.add("date-container__round-finish-row");
+  }
+  if (idx == 0 || idx % 7 == 0) {
+    dateContainer.classList.add("date-container__round-start-row");
+  }
+  if (idx == 6 || (idx + 1) % 7 == 0) {
+    dateContainer.classList.add("date-container__round-finish-row");
+  }
+  if (idx == 0 || idx % 7 == 0) {
+    dateContainer.classList.add("date-container__round-start-row");
+  }
+  if (idx == 6 || (idx + 1) % 7 == 0) {
+    dateContainer.classList.add("date-container__round-finish-row");
+  }
+  if (dateObject.isLivingDay) {
     dateContainer.classList.add("date_container__living-day");
   }
-  if(dateObject.isStartDay && dateObject.isLivingDay) {
+  if (dateObject.isStartDay && dateObject.isLivingDay) {
     dateContainer.classList.add("date-container__start");
   }
-  if(dateObject.isFinishDay && dateObject.isLivingDay) {
+  if (dateObject.isFinishDay && dateObject.isLivingDay) {
     dateContainer.classList.add("date-container__finish");
   }
 
@@ -133,15 +155,17 @@ function createDateElement(dateObject) {
 
 function insertDates(year, month) {
   datesRowElement.textContent = "";
-  getMonthDays(year, month).forEach((date) => {
-    datesRowElement.appendChild(createDateElement(date));
+  getMonthDays(year, month).forEach((date, idx) => {
+    datesRowElement.appendChild(createDateElement(date, idx));
   });
   calendarTitle.textContent = `${monthes[month]} ${year}`;
 }
 
 //helpers
 function defineSelectedDates(targetDate) {
+  console.log("targetDate: ", targetDate);
   if (selectedDate1 && compareDates(selectedDate1, targetDate)) {
+    console.log("defineSelectdedDates: comapare");
     selectedDate1 = null;
     return;
   } else if (selectedDate2 && compareDates(selectedDate2, targetDate)) {
@@ -210,15 +234,15 @@ function onBackMonth() {
   insertDates(selectedYear, selectedMonth);
 }
 function onDate(e) {
-  const targetDate = new Date(
-    selectedYear,
-    selectedMonth,
-    e.target.textContent
-  );
+  const [elementDate, elementMonth, elementYear] = e.target
+    .closest(".date-container")
+    .dataset.date.split("-");
+  console.log(elementDate, elementMonth, elementYear);
+  const targetDate = new Date(elementYear, elementMonth, elementDate);
+  console.log('TargetDate: ', targetDate)
   defineSelectedDates(targetDate);
   startAndFinishDates = getStartAndFinishDates();
   console.log(startAndFinishDates);
-  const bgElement = e.target.classList.toggle(".date-container__bg");
   insertDates(selectedYear, selectedMonth);
 }
 
