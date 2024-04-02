@@ -7,6 +7,9 @@ const selectDateElement = document.querySelector(".calendar__title");
 const currentDate = new Date().getDate();
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
+const currentDateInMilliseconds = new Date(currentYear, currentMonth, currentDate).getTime();
+console.log(currentDateInMilliseconds)
+console.log(new Date(currentDateInMilliseconds))
 let selectedMonth = currentMonth;
 let selectedYear = currentYear;
 let selectedDate1 = null;
@@ -47,22 +50,15 @@ function getLastDayOfMonth(year, month) {
 
 function getDateObj(year, monthIndex, dateDay) {
   const [start, end] = startAndFinishDates;
-  // console.log(start, end)
+  const dateInMilliseconds = new Date(year, monthIndex, dateDay).getTime();
   return {
     date: dateDay,
     monthIndex: monthIndex,
     year: year,
-    isCurrentDay:
-      year == currentYear &&
-      monthIndex === currentMonth &&
-      dateDay === currentDate,
+    milliseconds: dateInMilliseconds,
+    isCurrentDay: dateInMilliseconds == currentDateInMilliseconds,
     isLivingDay: isLivingDate(year, monthIndex, dateDay),
-    isStartDay:
-      startAndFinishDates.length &&
-      startAndFinishDates[0] &&
-      year === start.getUTCFullYear() &&
-      monthIndex === start.getMonth() &&
-      dateDay === start.getDate(),
+    isStartDay: start ? start.getTime() === dateInMilliseconds : false,
     isFinishDay:
       startAndFinishDates.length &&
       startAndFinishDates[1] &&
@@ -78,7 +74,7 @@ function getMonthDays(year, monthIndex) {
   const calendarMonthDays = [];
   //prefix days
   if (firstWeekDayIndex > 0) {
-    const lastPrevMonthDate = getLastDayOfMonth(year, monthIndex -1);
+    const lastPrevMonthDate = getLastDayOfMonth(year, monthIndex - 1);
     const prevMonthIndex = monthIndex - 1;
     for (let i = 0; i < firstWeekDayIndex - 1; i++) {
       calendarMonthDays.unshift(
@@ -110,18 +106,18 @@ function createDateElement(dateObject, idx) {
   if (idx == 6 || (idx + 1) % 7 == 0) {
     dateContainer.classList.add("date-container__round-finish-row");
   }
-  if (idx == 0 || idx % 7 == 0) {
-    dateContainer.classList.add("date-container__round-start-row");
-  }
-  if (idx == 6 || (idx + 1) % 7 == 0) {
-    dateContainer.classList.add("date-container__round-finish-row");
-  }
-  if (idx == 0 || idx % 7 == 0) {
-    dateContainer.classList.add("date-container__round-start-row");
-  }
-  if (idx == 6 || (idx + 1) % 7 == 0) {
-    dateContainer.classList.add("date-container__round-finish-row");
-  }
+  // if (idx == 0 || idx % 7 == 0) {
+  //   dateContainer.classList.add("date-container__round-start-row");
+  // }
+  // if (idx == 6 || (idx + 1) % 7 == 0) {
+  //   dateContainer.classList.add("date-container__round-finish-row");
+  // }
+  // if (idx == 0 || idx % 7 == 0) {
+  //   dateContainer.classList.add("date-container__round-start-row");
+  // }
+  // if (idx == 6 || (idx + 1) % 7 == 0) {
+  //   dateContainer.classList.add("date-container__round-finish-row");
+  // }
   if (dateObject.isLivingDay) {
     dateContainer.classList.add("date_container__living-day");
   }
@@ -210,16 +206,8 @@ function isLivingDate(year, monthIndex, dateDay) {
   if (startAndFinishDates.length < 2) return false;
   console.log(startAndFinishDates.length);
   const [start, end] = startAndFinishDates;
-  if (
-    year >= start.getUTCFullYear() &&
-    year <= end.getUTCFullYear() &&
-    monthIndex >= start.getMonth() &&
-    monthIndex <= end.getMonth() &&
-    dateDay >= start.getDate() &&
-    dateDay <= end.getDate()
-  )
-    return true;
-  return false;
+  const msd = new Date(year, monthIndex, dateDay).getTime();
+  return msd >= start.getTime() && msd <= end.getTime();
 }
 
 // Handlers
@@ -239,7 +227,6 @@ function onDate(e) {
     .dataset.date.split("-");
   console.log(elementDate, elementMonth, elementYear);
   const targetDate = new Date(elementYear, elementMonth, elementDate);
-  console.log('TargetDate: ', targetDate)
   defineSelectedDates(targetDate);
   startAndFinishDates = getStartAndFinishDates();
   console.log(startAndFinishDates);
