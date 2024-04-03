@@ -1,3 +1,5 @@
+style 
+  include buttons.css
 mixin textButton(text)
   button.text-button(class!= attributes.class)= text
 
@@ -7,3 +9,6 @@ mixin iconButton(iconPath, alt)
         
 mixin outlinedButton(text)
   button.outlined-button(class!= attributes.class)= text
+
+mixin filledButton(text)
+  button.filled-button(class!= attributes.class)= text

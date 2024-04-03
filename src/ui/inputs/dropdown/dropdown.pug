@@ -1,0 +1,26 @@
+style
+  include ../inputs.css
+  include ./dropdown.css
+
+mixin dropdown-item(title, amount)
+  li.dropdown__list-item(class!= attributes.class)
+          h2= title 
+          .dropdown__list-counter 
+            .outlinedIconButton.minus -
+            h3.dropdown-list__value 0
+            .outlinedIconButton.plus +
+
+mixin dropdown(label, defaultValue, options)
+  .text-input
+    span.text-input__label= label
+    div.text-input__input.dropdown(class!= attributes.class)
+      span.dropdown__result= defaultValue
+      ul.dropdown__list.dropdown__list-hide
+        +dropdown-item('Взрослые')(class="adults-amount")
+        +dropdown-item('Дети')(class="children-amount")
+        +dropdown-item('Младенцы')(class="baby-amount")
+        .dopdown__button-row
+          +textButton('Отчистить')
+          +textButton('Применить')
+  script 
+    include dropdown.js

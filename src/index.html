@@ -1,4 +1,253 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Toxin</title><link rel="stylesheet" type="text/css" href="pages/main/main.css"></head><body> <div class="header__wrapper"><header class="header"><img class="header__logo" src="./assets/svg/logo.svg" alt="toxin-logo"><nav class="header__nav"><ul class="nav-list"><li class="nav-list__link">О нас</li><li class="nav-list__link"><div class="nav-list__details">Услуги <img src="./assets/svg/expand_more.svg" alt="Список услуг"></div></li><li class="nav-list__link">Вакансии</li><li class="nav-list__link">Новости</li><li class="nav-list__link"> <div class="nav-list__details">Соглашения<img src="./assets/svg/expand_more.svg" alt="Список соглашений"></div></li></ul><button class="outlined-button header__login-button">Войти</button><button class="filled-button header__signUp-button">Зарегистрироваться</button><img class="nav-list__icon-burger" src="./assets/svg/burger.svg" alt="menu"></nav></header></div><div class="headline"><div class="search-form"><h2 class="search-form__title">Найдём номера под ваши пожелания</h2><div class="date-picker"> <div class="date-picker__select arive"><div class="date-picker__select_label">Прибытие</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="date-picker__select leave"><div class="date-picker__select_label">Выезд</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="calendar calendar-hide"><div class="calendar__top"> <button class="text-button calendar__back"> <img class="calendar__prew-month" src="assets/svg/arrow_back.svg" alt="null"></button><h2 class="calendar__title">Month </h2><button class="text-button calendar__forward"> <img class="calendar__prew-month" src="assets/svg/arrow_forward.svg" alt="null"></button></div><div class="calendar__week"> <div class="calendar__week_day">Пн</div><div class="calendar__week_day">Вт</div><div class="calendar__week_day">Ср</div><div class="calendar__week_day">Чт</div><div class="calendar__week_day">Пт</div><div class="calendar__week_day">Сб</div><div class="calendar__week_day">Вс</div></div><div class="calendar__dates-row"> </div><div class="calendar__buttons-row"> <button class="text-button calendar__button-cancel">Очистить</button><button class="text-button calendar__button-submit">Применить</button></div></div></div><script> const datePicker = document.querySelector(".date-picker");
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Toxin</title><link rel="stylesheet" type="text/css" href="pages/main/main.css"></head><body> <style> button {
+  font-family: Montserrat;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 22px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  border-radius: 22px;
+  cursor: pointer;
+}
+.outlined-button {
+  color: var(--color-primary);
+  border-width: 2px;
+  border-style: solid;
+  background-image: var(--primary-gradient);
+  background-clip: content-box;
+  background: transparent;
+  max-height: 34px;
+  transition: all 0.3s ease-in-out;
+}
+.filled-button {
+  padding: 10px 20px;
+  color: var(--color-white);
+  background-image: var(--primary-gradient);
+  max-height: 34px;
+  transition: all 0.4s ease-in;
+}
+.filled-button:hover {
+  background-image: var(--secondary-gradient);
+}
+.outlined-button:hover {
+  background-image: var(--secondary-gradient);
+  background: transparent;
+  color: var(--color-secondary);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  font-family: Montserrat;
+  color: var(--color-purple);
+  font-size: 12;
+  text-transform: uppercase;
+}
+.text-button:hover {
+  color: var(--color-black-50);
+}
+</style><div class="header__wrapper"><header class="header"><img class="header__logo" src="./assets/svg/logo.svg" alt="toxin-logo"><nav class="header__nav"><ul class="nav-list"><li class="nav-list__link">О нас</li><li class="nav-list__link"><div class="nav-list__details">Услуги <img src="./assets/svg/expand_more.svg" alt="Список услуг"></div></li><li class="nav-list__link">Вакансии</li><li class="nav-list__link">Новости</li><li class="nav-list__link"> <div class="nav-list__details">Соглашения<img src="./assets/svg/expand_more.svg" alt="Список соглашений"></div></li></ul><button class="outlined-button header__login-button">Войти</button><button class="filled-button header__signup-button">Зарегистрироваться</button><img class="nav-list__icon-burger" src="./assets/svg/burger.svg" alt="menu"></nav></header></div><style>.text-input {
+  display: flex;
+  flex-direction: column;
+}
+.text-input__label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.text-input__input {
+  font-family: Montserrat;
+  border: 1px solid var(--color-black-25);
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  color: var(--color-black-75);
+  outline: none;
+}
+.text-input__input:hover,
+.text-input__input:focus {
+  border-color: var(--color-black-50);
+  color: var(--color-black-50);
+}
+.text-input__label {
+  margin-top: 20px;
+}
+.dropdown {
+  padding: 16px 12px;
+  position: relative;
+  cursor: pointer;
+  padding: 12px 16px;
+  background: url(assets/svg/expand_more.svg);
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+.dropdown h2,
+button {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.dropdown__list {
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  z-index: 998;
+  width: calc(100% + 2px);
+  padding: 7px 16px;
+  padding-right: 7px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black-25);
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.dropdown__list-counter {
+  width: 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.outlinedIconButton {
+  border-radius: 30px;
+  border: 1px solid var(--color-black-25);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black-25);
+}
+.dopdown__button-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+.dropdown-open {
+  border-radius: 4px 4px 0 0;
+}
+.dropdown__list-hide {
+  display: none;
+}
+</style><style> button {
+  font-family: Montserrat;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 22px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  border-radius: 22px;
+  cursor: pointer;
+}
+.outlined-button {
+  color: var(--color-primary);
+  border-width: 2px;
+  border-style: solid;
+  background-image: var(--primary-gradient);
+  background-clip: content-box;
+  background: transparent;
+  max-height: 34px;
+  transition: all 0.3s ease-in-out;
+}
+.filled-button {
+  padding: 10px 20px;
+  color: var(--color-white);
+  background-image: var(--primary-gradient);
+  max-height: 34px;
+  transition: all 0.4s ease-in;
+}
+.filled-button:hover {
+  background-image: var(--secondary-gradient);
+}
+.outlined-button:hover {
+  background-image: var(--secondary-gradient);
+  background: transparent;
+  color: var(--color-secondary);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  font-family: Montserrat;
+  color: var(--color-purple);
+  font-size: 12;
+  text-transform: uppercase;
+}
+.text-button:hover {
+  color: var(--color-black-50);
+}
+</style><div class="headline"><div class="search-form"><h2 class="search-form__title">Найдём номера под ваши пожелания</h2><style> button {
+  font-family: Montserrat;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 22px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  border-radius: 22px;
+  cursor: pointer;
+}
+.outlined-button {
+  color: var(--color-primary);
+  border-width: 2px;
+  border-style: solid;
+  background-image: var(--primary-gradient);
+  background-clip: content-box;
+  background: transparent;
+  max-height: 34px;
+  transition: all 0.3s ease-in-out;
+}
+.filled-button {
+  padding: 10px 20px;
+  color: var(--color-white);
+  background-image: var(--primary-gradient);
+  max-height: 34px;
+  transition: all 0.4s ease-in;
+}
+.filled-button:hover {
+  background-image: var(--secondary-gradient);
+}
+.outlined-button:hover {
+  background-image: var(--secondary-gradient);
+  background: transparent;
+  color: var(--color-secondary);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  font-family: Montserrat;
+  color: var(--color-purple);
+  font-size: 12;
+  text-transform: uppercase;
+}
+.text-button:hover {
+  color: var(--color-black-50);
+}
+</style><div class="date-picker"> <div class="date-picker__select arive"><div class="date-picker__select_label">Прибытие</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="date-picker__select leave"><div class="date-picker__select_label">Выезд</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="calendar calendar-hide"><div class="calendar__top"> <button class="text-button calendar__back"> <img class="calendar__prew-month" src="assets/svg/arrow_back.svg" alt="null"></button><h2 class="calendar__title">Month </h2><button class="text-button calendar__forward"> <img class="calendar__prew-month" src="assets/svg/arrow_forward.svg" alt="null"></button></div><div class="calendar__week"> <div class="calendar__week_day">Пн</div><div class="calendar__week_day">Вт</div><div class="calendar__week_day">Ср</div><div class="calendar__week_day">Чт</div><div class="calendar__week_day">Пт</div><div class="calendar__week_day">Сб</div><div class="calendar__week_day">Вс</div></div><div class="calendar__dates-row"> </div><div class="calendar__buttons-row"> <button class="text-button calendar__button-cancel">Очистить</button><button class="text-button calendar__button-submit">Применить</button></div></div></div><script> const datePicker = document.querySelector(".date-picker");
 const calendar = document.querySelector(".calendar");
 const ariveSelectText = document.querySelector(
   ".date-picker__select.arive .date-picker__select_date"
@@ -270,4 +519,14 @@ cleanButton.addEventListener("click", onClean);
 submitButton.addEventListener("click", submitCalendar);
 
 insertDates(selectedYear, selectedMonth);
-</script></div><p class="headline__text">Лучшие номера для вашей работы, отдыха и просто вдохновения</p></div><script src="index.js"></script></body></html>
+</script><div class="text-input"><span class="text-input__label">Гости</span><div class="text-input__input dropdown"><span class="dropdown__result">Сколько гостей</span><ul class="dropdown__list dropdown__list-hide"><li class="dropdown__list-item adults-amount"><h2>Взрослые</h2><div class="dropdown__list-counter"> <div class="outlinedIconButton minus">-</div><h3 class="dropdown-list__value">0</h3><div class="outlinedIconButton plus">+</div></div></li><li class="dropdown__list-item children-amount"><h2>Дети</h2><div class="dropdown__list-counter"> <div class="outlinedIconButton minus">-</div><h3 class="dropdown-list__value">0</h3><div class="outlinedIconButton plus">+</div></div></li><li class="dropdown__list-item baby-amount"><h2>Младенцы</h2><div class="dropdown__list-counter"> <div class="outlinedIconButton minus">-</div><h3 class="dropdown-list__value">0</h3><div class="outlinedIconButton plus">+</div></div></li><div class="dopdown__button-row"><button class="text-button">Отчистить</button><button class="text-button">Применить</button></div></ul></div></div><script> const dropdown = document.querySelector('.dropdown');
+const dropdownList= document.querySelector('.dropdown__list');
+
+console.log(dropdown)
+
+dropdown.addEventListener('click', () => {
+console.log('drpdwn')
+  dropdown.classList.toggle('dropdown-open');
+  dropdownList.classList.toggle('dropdown__list-hide');
+})
+</script><button class="filled-button search-form__submit">Подобрать номер</button></div><p class="headline__text">Лучшие номера для вашей работы, отдыха и просто вдохновения</p></div><script src="index.js"></script></body></html>

@@ -1,7 +1,13 @@
 include ../../../ui/calendar_picker/calendar_picker.pug
+include ../../../ui/inputs/dropdown/dropdown.pug
+include ../../../ui/buttons/buttons.pug
+
 
 div.headline
   div.search-form
     h2.search-form__title Найдём номера под ваши пожелания
     +calendar-picker()
+    +dropdown('Гости', 'Сколько гостей')
+    +filledButton('Подобрать номер')(class="search-form__submit")
+
   p.headline__text Лучшие номера для вашей работы, отдыха и просто вдохновения

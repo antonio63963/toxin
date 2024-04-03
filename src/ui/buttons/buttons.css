@@ -39,8 +39,7 @@ button {
 .text-button {
   background: none;
   border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+  padding: 0;
   font-weight: bold;
   font-family: Montserrat;
   color: var(--color-purple);
@@ -48,11 +47,5 @@ button {
   text-transform: uppercase;
 }
 .text-button:hover {
-  background-color: var(--color-black-5);
-}
-
-@media screen and (min-width: 1440px) {
-  .header {
-    padding: 15px 140px;
-  }
+  color: var(--color-black-50);
 }

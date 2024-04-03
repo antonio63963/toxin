@@ -41,6 +41,10 @@
   display: flex;
   flex-direction: column;
 }
+.search-form__submit {
+  margin-top: 30px;
+  width: 100%;
+}
 
 @media screen and (min-width: 1440px) {
   .search-form {
