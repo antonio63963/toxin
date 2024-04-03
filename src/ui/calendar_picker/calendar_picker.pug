@@ -1,35 +1,36 @@
-mixin date-picker(label)
-  .date-picker__select(class!= attributes.class)
-    .date-picker__select_label= label
-    .date-picker__select_field
-      span.date-picker__select_date ДД.ММ.ГГГГ
-      img(src="assets/svg/expand_more.svg")
+mixin calendar-picker()
+  mixin date-picker(label)
+    .date-picker__select(class!= attributes.class)
+      .date-picker__select_label= label
+      .date-picker__select_field
+        span.date-picker__select_date ДД.ММ.ГГГГ
+        img(src="assets/svg/expand_more.svg")
 
-mixin weekDay(day)
-  .calendar__week_day= day
+  mixin weekDay(day)
+    .calendar__week_day= day
 
-include ../buttons/buttons.pug
+  include ../buttons/buttons.pug
 
-.date-picker 
-  +date-picker('Прибытие')(class="arive")
-  +date-picker('Выезд')(class="leave")
-  .calendar.calendar-hide
-    .calendar__top 
-      +iconButton("assets/svg/arrow_back.svg", arrow-back)(class="calendar__back")
-      h2.calendar__title Month 
-      +iconButton("assets/svg/arrow_forward.svg", arrow-forward)(class="calendar__forward")
-    .calendar__week 
-      +weekDay('Пн')
-      +weekDay('Вт')
-      +weekDay('Ср')
-      +weekDay('Чт')
-      +weekDay('Пт')
-      +weekDay('Сб')
-      +weekDay('Вс')
-    .calendar__dates-row 
-    .calendar__buttons-row 
-      +textButton('Очистить')(class="calendar__button-cancel")
-      +textButton('Применить')(class="calendar__button-submit")
+  .date-picker 
+    +date-picker('Прибытие')(class="arive")
+    +date-picker('Выезд')(class="leave")
+    .calendar.calendar-hide
+      .calendar__top 
+        +iconButton("assets/svg/arrow_back.svg", arrow-back)(class="calendar__back")
+        h2.calendar__title Month 
+        +iconButton("assets/svg/arrow_forward.svg", arrow-forward)(class="calendar__forward")
+      .calendar__week 
+        +weekDay('Пн')
+        +weekDay('Вт')
+        +weekDay('Ср')
+        +weekDay('Чт')
+        +weekDay('Пт')
+        +weekDay('Сб')
+        +weekDay('Вс')
+      .calendar__dates-row 
+      .calendar__buttons-row 
+        +textButton('Очистить')(class="calendar__button-cancel")
+        +textButton('Применить')(class="calendar__button-submit")
 
-script 
-  include calendar_picker.js 
+  script 
+    include calendar_picker.js 
