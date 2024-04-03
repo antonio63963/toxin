@@ -1,24 +1,19 @@
 mixin date-picker(label)
-  .picker__select(class!= attributes.class)
-    .picker__select_label= label
-    .picker__select_field
-      span.picker__select_date ДД.ММ.ГГГГ
+  .date-picker__select(class!= attributes.class)
+    .date-picker__select_label= label
+    .date-picker__select_field
+      span.date-picker__select_date ДД.ММ.ГГГГ
       img(src="assets/svg/expand_more.svg")
 
 mixin weekDay(day)
   .calendar__week_day= day
 
-mixin iconButton(iconPath, alt)
-  button.text-button(class!= attributes.class) 
-        img.calendar__prew-month(src=iconPath, alt=alt)
+include ../buttons/buttons.pug
 
-mixin textButton(text)
-  button.text-button(class!= attributes.class)= text
-
-.picker 
+.date-picker 
   +date-picker('Прибытие')(class="arive")
   +date-picker('Выезд')(class="leave")
-  .calendar 
+  .calendar.calendar-hide
     .calendar__top 
       +iconButton("assets/svg/arrow_back.svg", arrow-back)(class="calendar__back")
       h2.calendar__title Month 

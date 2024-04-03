@@ -1,9 +1,19 @@
+const datePicker = document.querySelector(".date-picker");
+const calendar = document.querySelector(".calendar");
+const ariveSelectText = document.querySelector(
+  ".date-picker__select.arive .date-picker__select_date"
+);
+const leaveSelectText = document.querySelector(
+  ".date-picker__select.leave .date-picker__select_date"
+);
 const datesRowElement = document.querySelector(".calendar__dates-row");
 const monthForward = document.querySelector(".calendar__forward");
 const monthBack = document.querySelector(".calendar__back");
 const calendarTitle = document.querySelector(".calendar__title");
 const selectDateElement = document.querySelector(".calendar__title");
-
+const cleanButton = document.querySelector(".calendar__button-cancel");
+const submitButton = document.querySelector(".calendar__button-submit");
+console.log(submitButton)
 const currentDate = new Date().getDate();
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
@@ -12,8 +22,7 @@ const currentDateInMilliseconds = new Date(
   currentMonth,
   currentDate
 ).getTime();
-console.log(currentDateInMilliseconds);
-console.log(new Date(currentDateInMilliseconds));
+
 let selectedMonth = currentMonth;
 let selectedYear = currentYear;
 let selectedDate1 = null;
@@ -44,6 +53,13 @@ function compareDates(date1, date2) {
     date1.getUTCFullYear() === date2.getUTCFullYear() &&
     date1.getMonth() === date2.getMonth()
   );
+}
+
+function formatDateToString(date) {
+  const dateDay = date.getDate();
+  const month = date.getMonth();
+  const year = date.getUTCFullYear();
+  return `${dateDay}.${month}.${year}`;
 }
 
 function getLastDayOfMonth(year, month) {
@@ -195,6 +211,16 @@ function isLivingDate(year, monthIndex, dateDay) {
   return msd >= start.getTime() && msd <= end.getTime();
 }
 
+//ui
+function showSelectedDatesInUI() {
+  ariveSelectText.textContent = startAndFinishDates[0]
+    ? formatDateToString(startAndFinishDates[0])
+    : "дд.мм.гг";
+  leaveSelectText.textContent = startAndFinishDates[1]
+    ? formatDateToString(startAndFinishDates[1])
+    : "дд.мм.гг";
+}
+
 // Handlers
 
 function onForwardMonth() {
@@ -214,12 +240,33 @@ function onDate(e) {
   const targetDate = new Date(elementYear, elementMonth, elementDate);
   defineSelectedDates(targetDate);
   startAndFinishDates = getStartAndFinishDates();
+  showSelectedDatesInUI();
   console.log(startAndFinishDates);
   insertDates(selectedYear, selectedMonth);
 }
 
+function onClean() {
+  selectedDate1 = null;
+  selectedDate2 = null;
+  startAndFinishDates = [];
+  showSelectedDatesInUI();
+  insertDates(selectedYear, selectedMonth);
+}
+
+function showCalendar() {
+  calendar.classList.remove("calendar-hide");
+}
+
+function submitCalendar(e) {
+  e.stopPropagation();
+  calendar.classList.add("calendar-hide");
+}
+
+datePicker.addEventListener("click", showCalendar);
 monthForward.addEventListener("click", onForwardMonth);
 monthBack.addEventListener("click", onBackMonth);
 datesRowElement.addEventListener("click", onDate);
+cleanButton.addEventListener("click", onClean);
+submitButton.addEventListener("click", submitCalendar);
 
 insertDates(selectedYear, selectedMonth);

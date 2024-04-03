@@ -1,5 +1,6 @@
 @import "../common/variables.css";
 @import "../common/fonts.css";
+@import "./buttons/buttons.css";
 @import "./footer/footer.css";
 @import "./header/header.css";
 /* @import "./inputs.css"; */
@@ -40,42 +41,7 @@ ul > li {
   cursor: pointer;
 }
 
-button {
-  padding: 8px 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 22px;
-  font-size: 12px;
-  border: none;
-  background: none;
-  border-radius: 22px;
-  cursor: pointer;
-}
-.outlined-button {
-  color: var(--color-primary);
-  border-width: 2px;
-  border-style: solid;
-  background-image: var(--primary-gradient);
-  background-clip: content-box;
-  background: transparent;
-  max-height: 34px;
-  transition: all 0.3s ease-in-out;
-}
-.filled-button {
-  padding: 10px 20px;
-  color: var(--color-white);
-  background-image: var(--primary-gradient);
-  max-height: 34px;
-  transition: all 0.4s ease-in;
-}
-.filled-button:hover {
-  background-image: var(--secondary-gradient);
-}
-.outlined-button:hover {
-  background-image: var(--secondary-gradient);
-  background: transparent;
-  color: var(--color-secondary);
-}
+
 
 @media screen and(min-width: var(--desktopXL)) {
   h1 {

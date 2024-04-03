@@ -1,0 +1,9 @@
+mixin textButton(text)
+  button.text-button(class!= attributes.class)= text
+
+mixin iconButton(iconPath, alt)
+  button.text-button(class!= attributes.class) 
+    img.calendar__prew-month(src=iconPath, alt=alt)
+        
+mixin outlinedButton(text)
+  button.outlined-button(class!= attributes.class)= text

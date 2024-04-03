@@ -1,9 +1,19 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Toxin</title><link rel="stylesheet" type="text/css" href="pages/main/main.css"></head><body> <div class="header__wrapper"><header class="header"><img class="header__logo" src="./assets/svg/logo.svg" alt="toxin-logo"><nav class="header__nav"><ul class="nav-list"><li class="nav-list__link">О нас</li><li class="nav-list__link"><div class="nav-list__details">Услуги <img src="./assets/svg/expand_more.svg" alt="Список услуг"></div></li><li class="nav-list__link">Вакансии</li><li class="nav-list__link">Новости</li><li class="nav-list__link"> <div class="nav-list__details">Соглашения<img src="./assets/svg/expand_more.svg" alt="Список соглашений"></div></li></ul><button class="outlined-button header__login-button">Войти</button><button class="filled-button header__signUp-button">Зарегистрироваться</button><img class="nav-list__icon-burger" src="./assets/svg/burger.svg" alt="menu"></nav></header></div><div class="headline"><div class="search-form"><h2 class="search-form__title">Найдём номера под ваши пожелания</h2><div class="picker"> <div class="picker__select arive"><div class="picker__select_label">Прибытие</div><div class="picker__select_field"><span class="picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="picker__select leave"><div class="picker__select_label">Выезд</div><div class="picker__select_field"><span class="picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="calendar"> <div class="calendar__top"> <button class="text-button calendar__back"> <img class="calendar__prew-month" src="assets/svg/arrow_back.svg" alt="null"></button><h2 class="calendar__title">Month </h2><button class="text-button calendar__forward"> <img class="calendar__prew-month" src="assets/svg/arrow_forward.svg" alt="null"></button></div><div class="calendar__week"> <div class="calendar__week_day">Пн</div><div class="calendar__week_day">Вт</div><div class="calendar__week_day">Ср</div><div class="calendar__week_day">Чт</div><div class="calendar__week_day">Пт</div><div class="calendar__week_day">Сб</div><div class="calendar__week_day">Вс</div></div><div class="calendar__dates-row"> </div><div class="calendar__buttons-row"> <button class="text-button calendar__button-cancel">Очистить</button><button class="text-button calendar__button-submit">Применить</button></div></div></div><script> const datesRowElement = document.querySelector(".calendar__dates-row");
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Toxin</title><link rel="stylesheet" type="text/css" href="pages/main/main.css"></head><body> <div class="header__wrapper"><header class="header"><img class="header__logo" src="./assets/svg/logo.svg" alt="toxin-logo"><nav class="header__nav"><ul class="nav-list"><li class="nav-list__link">О нас</li><li class="nav-list__link"><div class="nav-list__details">Услуги <img src="./assets/svg/expand_more.svg" alt="Список услуг"></div></li><li class="nav-list__link">Вакансии</li><li class="nav-list__link">Новости</li><li class="nav-list__link"> <div class="nav-list__details">Соглашения<img src="./assets/svg/expand_more.svg" alt="Список соглашений"></div></li></ul><button class="outlined-button header__login-button">Войти</button><button class="filled-button header__signUp-button">Зарегистрироваться</button><img class="nav-list__icon-burger" src="./assets/svg/burger.svg" alt="menu"></nav></header></div><div class="headline"><div class="search-form"><h2 class="search-form__title">Найдём номера под ваши пожелания</h2><div class="date-picker"> <div class="date-picker__select arive"><div class="date-picker__select_label">Прибытие</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="date-picker__select leave"><div class="date-picker__select_label">Выезд</div><div class="date-picker__select_field"><span class="date-picker__select_date">ДД.ММ.ГГГГ</span><img src="assets/svg/expand_more.svg"></div></div><div class="calendar calendar-hide"><div class="calendar__top"> <button class="text-button calendar__back"> <img class="calendar__prew-month" src="assets/svg/arrow_back.svg" alt="null"></button><h2 class="calendar__title">Month </h2><button class="text-button calendar__forward"> <img class="calendar__prew-month" src="assets/svg/arrow_forward.svg" alt="null"></button></div><div class="calendar__week"> <div class="calendar__week_day">Пн</div><div class="calendar__week_day">Вт</div><div class="calendar__week_day">Ср</div><div class="calendar__week_day">Чт</div><div class="calendar__week_day">Пт</div><div class="calendar__week_day">Сб</div><div class="calendar__week_day">Вс</div></div><div class="calendar__dates-row"> </div><div class="calendar__buttons-row"> <button class="text-button calendar__button-cancel">Очистить</button><button class="text-button calendar__button-submit">Применить</button></div></div></div><script> const datePicker = document.querySelector(".date-picker");
+const calendar = document.querySelector(".calendar");
+const ariveSelectText = document.querySelector(
+  ".date-picker__select.arive .date-picker__select_date"
+);
+const leaveSelectText = document.querySelector(
+  ".date-picker__select.leave .date-picker__select_date"
+);
+const datesRowElement = document.querySelector(".calendar__dates-row");
 const monthForward = document.querySelector(".calendar__forward");
 const monthBack = document.querySelector(".calendar__back");
 const calendarTitle = document.querySelector(".calendar__title");
 const selectDateElement = document.querySelector(".calendar__title");
-
+const cleanButton = document.querySelector(".calendar__button-cancel");
+const submitButton = document.querySelector(".calendar__button-submit");
+console.log(submitButton)
 const currentDate = new Date().getDate();
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
@@ -12,8 +22,7 @@ const currentDateInMilliseconds = new Date(
   currentMonth,
   currentDate
 ).getTime();
-console.log(currentDateInMilliseconds);
-console.log(new Date(currentDateInMilliseconds));
+
 let selectedMonth = currentMonth;
 let selectedYear = currentYear;
 let selectedDate1 = null;
@@ -44,6 +53,13 @@ function compareDates(date1, date2) {
     date1.getUTCFullYear() === date2.getUTCFullYear() &&
     date1.getMonth() === date2.getMonth()
   );
+}
+
+function formatDateToString(date) {
+  const dateDay = date.getDate();
+  const month = date.getMonth();
+  const year = date.getUTCFullYear();
+  return `${dateDay}.${month}.${year}`;
 }
 
 function getLastDayOfMonth(year, month) {
@@ -195,6 +211,16 @@ function isLivingDate(year, monthIndex, dateDay) {
   return msd >= start.getTime() && msd <= end.getTime();
 }
 
+//ui
+function showSelectedDatesInUI() {
+  ariveSelectText.textContent = startAndFinishDates[0]
+    ? formatDateToString(startAndFinishDates[0])
+    : "дд.мм.гг";
+  leaveSelectText.textContent = startAndFinishDates[1]
+    ? formatDateToString(startAndFinishDates[1])
+    : "дд.мм.гг";
+}
+
 // Handlers
 
 function onForwardMonth() {
@@ -214,13 +240,34 @@ function onDate(e) {
   const targetDate = new Date(elementYear, elementMonth, elementDate);
   defineSelectedDates(targetDate);
   startAndFinishDates = getStartAndFinishDates();
+  showSelectedDatesInUI();
   console.log(startAndFinishDates);
   insertDates(selectedYear, selectedMonth);
 }
 
+function onClean() {
+  selectedDate1 = null;
+  selectedDate2 = null;
+  startAndFinishDates = [];
+  showSelectedDatesInUI();
+  insertDates(selectedYear, selectedMonth);
+}
+
+function showCalendar() {
+  calendar.classList.remove("calendar-hide");
+}
+
+function submitCalendar(e) {
+  e.stopPropagation();
+  calendar.classList.add("calendar-hide");
+}
+
+datePicker.addEventListener("click", showCalendar);
 monthForward.addEventListener("click", onForwardMonth);
 monthBack.addEventListener("click", onBackMonth);
 datesRowElement.addEventListener("click", onDate);
+cleanButton.addEventListener("click", onClean);
+submitButton.addEventListener("click", submitCalendar);
 
 insertDates(selectedYear, selectedMonth);
 </script></div><p class="headline__text">Лучшие номера для вашей работы, отдыха и просто вдохновения</p></div><script src="index.js"></script></body></html>

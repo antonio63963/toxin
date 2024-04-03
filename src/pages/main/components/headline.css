@@ -6,6 +6,7 @@
   min-height: 720px;
   max-width: var(--app-width);
   height: 90rem;
+  max-height: 900px;
   /* min-height: 360px; */
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,6 +24,7 @@
 /* Form */
 .search-form {
   width: 380px;
+  min-width: 320px;
   margin-top: 110px;
   margin-left: 14rem;     
   align-self: flex-start;

@@ -1,24 +1,24 @@
 @import "../../common/variables.css";
 
-.picker {
+.date-picker {
   position: relative;
   display: flex;
   justify-content: space-between;
   padding-bottom: 6px;
   cursor: pointer;
 }
-.picker__select {
+.date-picker__select {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
-.picker__select_label {
+.date-picker__select_label {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
   margin-bottom: 6px;
 }
-.picker__select_field {
+.date-picker__select_field {
   border: 1px solid var(--color-black-25);
   border-radius: 4px;
   width: 100%;
@@ -28,7 +28,7 @@
   padding: 12px 16px;
   color: var(--color-black-75);
 }
-.picker__select.arive {
+.date-picker__select.arive {
   margin-right: 20px;
 }
 .calendar {
@@ -126,17 +126,7 @@ div.date-container__selected-date {
   justify-content: space-between;
   margin-top: 20px;
 }
-.text-button {
-  background: none;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-family: Montserrat;
-  color: var(--color-purple);
-  font-size: 12;
-  text-transform: uppercase;
-}
-.text-button:hover {
-  background-color: var(--color-black-5);
+
+.calendar-hide {
+  display: none;
 }

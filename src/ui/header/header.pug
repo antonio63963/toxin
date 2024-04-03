@@ -1,3 +1,5 @@
+include ../buttons/buttons.pug
+
 div.header__wrapper
   header.header
     img(class="header__logo", src="./assets/svg/logo.svg", alt="toxin-logo") 
@@ -12,6 +14,7 @@ div.header__wrapper
         li.nav-list__link 
           .nav-list__details Соглашения
             img(src="./assets/svg/expand_more.svg", alt="Список соглашений") 
-      button.outlined-button.header__login-button Войти
+      //- button.outlined-button.header__login-button Войти
+      +outlinedButton('Войти')(class="header__login-button")
       button.filled-button.header__signUp-button Зарегистрироваться
       img(class="nav-list__icon-burger", src="./assets/svg/burger.svg", alt="menu")
