@@ -1,0 +1,7 @@
+style  
+  include form.css
+
+mixin form(title, mix)
+  div.form(class!= attributes.class)
+    h2.form__title= title
+    block

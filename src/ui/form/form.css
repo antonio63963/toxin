@@ -1,0 +1,12 @@
+/* Form */
+.form {
+  width: 380px;
+  min-width: 320px;
+  background-color: var(--color-white);
+  padding: 40px 30px 30px 30px;
+  border-radius: 4px;
+}
+.form__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}

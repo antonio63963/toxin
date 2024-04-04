@@ -56,7 +56,7 @@
     padding: 15px 140px;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1222px) {
   .header__signUp-button {
     display: none;
   }
