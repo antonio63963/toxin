@@ -43,9 +43,9 @@ ul > li {
 
 
 
-@media screen and(min-width: var(--desktopXL)) {
+@media screen and (min-width: 1200px) {
   h1 {
-    font-size: 12px;
+    font-size: 24px; 
   }
   h2 {
     font-size: 19px;

@@ -1,3 +1,10 @@
+input {
+  background: none;
+  outline: none;
+}
+input:hover, input:focus {
+  outline: none;
+}
 .text-input {
   display: flex;
   flex-direction: column;
