@@ -1,4 +1,6 @@
 .footer {
+  position: relative;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -37,11 +39,8 @@
 
 @media screen and (min-width: 1200px) {
   .footer__content {
-    padding: 100px 140px;
+    padding: 50px 140px;
   }
-  /* .footer__col {
-    padding: 50px 40px 50px 0;
-  } */
   .footer__col-title {
     font-size: 19px;
   }

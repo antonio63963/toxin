@@ -3,7 +3,6 @@
 @import "./buttons/buttons.css";
 @import "./footer/footer.css";
 @import "./header/header.css";
-/* @import "./inputs.css"; */
 
 html {
   font-size: calc(1vw / 14.4 * 9);

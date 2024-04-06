@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV == "production";
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
-const fileName = ["index", "login", "rooms", "roomDetails"];
+const fileName = ["index", "login"];
 
 const config = {
   context: path.resolve(__dirname, "./src"),

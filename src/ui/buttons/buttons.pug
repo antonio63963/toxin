@@ -7,8 +7,8 @@ mixin iconButton(iconPath, alt)
   button.text-button(class!= attributes.class) 
     img.calendar__prew-month(src=iconPath, alt=alt)
         
-mixin outlinedButton(text)
-  button.outlined-button(class!= attributes.class)= text
+mixin outlinedButton(text, href)
+  a.outlined-button(class!= attributes.class, role="button", href!= href)= text
 
-mixin filledButton(text)
-  button.filled-button(class!= attributes.class)= text
+mixin filledButton(text, href)
+  a.filled-button(class!= attributes.class, role="button", href!= href)= text

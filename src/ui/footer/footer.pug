@@ -1,6 +1,3 @@
-style
-  footer.css 
-
 include ../inputs/inputWithButton/inputWithButton.pug
 
 mixin footerColItem(title, ...options)
@@ -9,16 +6,16 @@ mixin footerColItem(title, ...options)
     ul.footer__col-list
       each val in options
         li.footer__col-list-item= val
-
-footer.footer
-  .footer__content 
-    .footer__col
-      img(src="assets/svg/logo.svg")
-      p.footer__col-description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-    +footerColItem('Навигация', 'О нас', 'Новости', 'служба поддержки', 'услуги')
-    +footerColItem('О нас', 'О сервисе', 'Наша команда', 'Вакансии', 'Инвесторы')
-    +footerColItem('Служба поддержки', 'Соглашения', 'Сообщества', 'Связь с нами')
-    .footer__col 
-      h2.footer__col-title Подписка
-      p.footer__col-description Получайте специальные предложения и новости сервиса
-      +inputButton('Email')(class="footer__email-input")
+mixin appFooter(logo= "assets/svg/logo.svg")
+  footer.footer
+    .footer__content 
+      .footer__col
+        img(src!= logo)
+        p.footer__col-description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+      +footerColItem('Навигация', 'О нас', 'Новости', 'служба поддержки', 'услуги')
+      +footerColItem('О нас', 'О сервисе', 'Наша команда', 'Вакансии', 'Инвесторы')
+      +footerColItem('Служба поддержки', 'Соглашения', 'Сообщества', 'Связь с нами')
+      .footer__col 
+        h2.footer__col-title Подписка
+        p.footer__col-description Получайте специальные предложения и новости сервиса
+        +inputButton('Email')(class="footer__email-input")
