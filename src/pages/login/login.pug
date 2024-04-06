@@ -1,4 +1,6 @@
 include ../../ui/layouts/pageLayout.pug
+include ../../ui/form/form.pug
+include ../../ui/inputs/textInput/textInput.pug
 
 doctype html
 html(lang="ru")
@@ -10,7 +12,14 @@ html(lang="ru")
   body 
     //- +appPageLayout()
     +appHeader({"userName": null, "logo": "../../assets/svg/logo.svg", "moreIcon": "../../assets/svg/expand_more.svg"})
-    .main.loginMain
+    main.loginMain
+      +form('Войти')
+        +textInput('Email')
+        +textInput('Пароль', "password")(class="login-input__password")
+        +filledButton('Войти', '#')(class="login-button__enter")
+        .signUp-block
+          span.signUp-block__text Нет аккаунта на Toxin?
+          +outlinedButton('Создать')
     +appFooter("../../assets/svg/logo.svg")
     script 
       include ../../js/login.js

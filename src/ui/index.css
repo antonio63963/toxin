@@ -3,6 +3,7 @@
 @import "./buttons/buttons.css";
 @import "./footer/footer.css";
 @import "./header/header.css";
+@import "./inputs/inputs.css";
 
 html {
   font-size: calc(1vw / 14.4 * 9);
@@ -15,9 +16,16 @@ html {
   box-sizing: border-box;
 }
 body {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 14px;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
