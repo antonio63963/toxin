@@ -1,7 +1,8 @@
-mixin navLink(name, isMoreIcon = false)
+mixin navLink(options)
+  - const {name, href, isMoreIcon} = options || {};
   block 
   .nav-link(class!= attributes.class)
-    a.nav-link__text= name
+    a.nav-link__text(href!= href)= name || 'Нет Текста!'
     if(isMoreIcon)
       .nav-link__icon-wrapper 
         img.nav-link__icon(src=require('../../assets/svg/expand_more.svg'))

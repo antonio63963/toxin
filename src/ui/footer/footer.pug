@@ -5,7 +5,8 @@ mixin footerColItem(title, ...options)
     h2.footer__col-title= title
     ul.footer__col-list
       each val in options
-        li.footer__col-list-item= val
+        +navLink()
+        //- li.footer__col-list-item= val
 mixin appFooter()
   footer.footer
     .footer__content 

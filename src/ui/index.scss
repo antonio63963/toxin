@@ -45,7 +45,9 @@ ul > li {
   cursor: pointer;
 }
 
-
+a {
+  text-decoration: none;
+}
 
 @media screen and (min-width: 1200px) {
   h1 {
