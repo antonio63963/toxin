@@ -1,4 +1,12 @@
 include ../../ui/layouts/pageLayout.pug
 
-+appPageLayout() 
-  include ./components/headline.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body 
+    +appPageLayout() 
+      include ./components/headline.pug
+    script(src="./main.js")

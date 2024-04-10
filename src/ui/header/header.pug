@@ -3,25 +3,25 @@ include ../buttons/buttons.pug
 mixin appHeader(headerOptions={"userName": null, "logo": "assets/svg/logo.svg", "moreIcon": "assets/svg/expand_more.svg"}) 
   div.header__wrapper
     header.header
-      img(class="header__logo", src!= headerOptions.logo, alt="toxin-logo") 
+      img(class="header__logo", src=require("../../assets/svg/logo.svg"), alt="toxin-logo") 
       //- img(class="header__logo", src="assets/svg/logo.svg", alt="toxin-logo") 
       nav.header__nav
         ul.nav-list
           li.nav-list__link О нас
           li.nav-list__link
             .nav-list__details Услуги 
-              img(src!= headerOptions.moreIcon, alt="icon more") 
+              img(src=require("../../assets/svg/expand_more.svg"), alt="icon more") 
           li.nav-list__link Вакансии
           li.nav-list__link Новости
           li.nav-list__link 
             .nav-list__details Соглашения
-              img(src!= headerOptions.moreIcon, alt="icon more") 
+              img(src=require("../../assets/svg/expand_more.svg"), alt="icon more")
         if headerOptions.userName 
           .header__user
             span.header__user-name= headerOptions.userName
         else          
           .header__auth-options
-            +outlinedButton('Войти', 'pages/login/login.html')(class="header__login-button")
+            +outlinedButton('Войти', '../../pages/login/login.pug')(class="header__login-button")
             +filledButton('Зарегистрироваться')(class="header__signUp-button")
-        img(class="nav-list__icon-burger", src="./assets/svg/burger.svg", alt="menu")
+        img(class="nav-list__icon-burger", src=require("../../assets/svg/burger.svg"), alt="menu")
         

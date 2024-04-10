@@ -4,7 +4,7 @@ mixin calendar-picker()
       .date-picker__select_label= label
       .date-picker__select_field
         span.date-picker__select_date ДД.ММ.ГГГГ
-        img(src="assets/svg/expand_more.svg")
+        img(src=require("../../assets/svg/expand_more.svg"))
 
   mixin weekDay(day)
     .calendar__week_day= day
@@ -16,9 +16,9 @@ mixin calendar-picker()
     +date-picker('Выезд')(class="leave")
     .calendar.calendar-hide
       .calendar__top 
-        +iconButton("assets/svg/arrow_back.svg", arrow-back)(class="calendar__back")
+        +iconButton(require("../../assets/svg/arrow_back.svg"), arrow-back)(class="calendar__back")
         h2.calendar__title Month 
-        +iconButton("assets/svg/arrow_forward.svg", arrow-forward)(class="calendar__forward")
+        +iconButton(require("../../assets/svg/arrow_forward.svg"), arrow-forward)(class="calendar__forward")
       .calendar__week 
         +weekDay('Пн')
         +weekDay('Вт')

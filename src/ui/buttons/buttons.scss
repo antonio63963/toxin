@@ -22,10 +22,10 @@ a {
   cursor: pointer;
 }
 .outlined-button {
-  color: var(--color-primary);
+  color: $color-primary;
   border-width: 2px;
   border-style: solid;
-  background-image: var(--primary-gradient);
+  background-image: $primary-gradient;
   background-clip: content-box;
   background: transparent;
   max-height: 34px;
@@ -33,18 +33,18 @@ a {
 }
 .filled-button {
   padding: 10px 20px;
-  color: var(--color-white);
-  background-image: var(--primary-gradient);
+  color: $color-white;
+  background-image: $primary-gradient;
   max-height: 34px;
   transition: all 0.4s ease-in;
 }
 .filled-button:hover {
-  background-image: var(--secondary-gradient);
+  background-image: $secondary-gradient;
 }
 .outlined-button:hover {
-  background-image: var(--secondary-gradient);
+  background-image: $secondary-gradient;
   background: transparent;
-  color: var(--color-secondary);
+  color: $color-secondary;
 }
 
 .text-button {
@@ -53,10 +53,10 @@ a {
   padding: 0;
   font-weight: bold;
   font-family: Montserrat;
-  color: var(--color-purple);
+  color: $color-purple;
   font-size: 12;
   text-transform: uppercase;
 }
 .text-button:hover {
-  color: var(--color-black-50);
+  color: $color-black-50;
 }

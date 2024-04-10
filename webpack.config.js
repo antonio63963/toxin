@@ -1,77 +1,93 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
-const isProduction = process.env.NODE_ENV == "production";
+const devMode = process.env.NODE_ENV === 'development';
 
-const stylesHandler = MiniCssExtractPlugin.loader;
-
-const fileName = ["index", "login"];
-
-const config = {
-  context: path.resolve(__dirname, "./src"),
-  entry: fileName.reduce((conf, idx) => {
-    conf[idx] = `./js/${idx}.js`;
-    return conf;
-  }, {}),
+module.exports = {
+  context: path.resolve(__dirname, "src"),
+  entry: "./pages/main/main.js",
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: devMode ? '[name].js' : '[name].[hash].js',
+    // assetModuleFilename: path.join("assets", "[name].[ext]"),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./pages/main/main.pug",
+      filename: "index.html",
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
+    new FileManagerPlugin({
+      events: {
+        onEnd: {
+          copy: [
+            {
+              source: path.join('static'),
+              destination: 'dist',
+            }
+          ]
+        }
+      }
+    })
+  ],
   devServer: {
-    open: true,
-    host: "localhost",
-    hot: false,
+    watchFiles: "pages/main/main.html",
+    // port: 9000,
   },
-  plugins: [new MiniCssExtractPlugin()].concat(
-    fileName.map(
-      (file) =>
-        new HtmlWebpackPlugin({
-          template:
-            file == "index" ? `./index.html` : `./pages/${file}/${file}.html`,
-          // `./${file}.html`,
-          inject: "head",
-          filename:
-            file == "index"
-              ? `./index.html`
-              : `./pages/${file}/${file}.html`,
-          // `./${file}.html`,
-          chunks: [file],
-        })
-    )
-  ).filter(Boolean),
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/i,
-        loader: "babel-loader",
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
+        test: /\.pug$/,
+        loader: "pug-loader",
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [stylesHandler, "css-loader", "sass-loader"],
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              debug: true,
+              sourceMap: false,
+              removeCR: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset",
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
-      // {
-      //   test: /\.(html)$/i,
-      //   loader: ["hmtl-loader"],
-      // },
+      {
+        test: /\.svg$/,
+        type: "asset/resource",
+        generator: {
+          filename: path.join("svg", "[name].[contenthash][ext]"),
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
-};
-
-module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
-  } else {
-    config.mode = "development";
-  }
-  return config;
 };

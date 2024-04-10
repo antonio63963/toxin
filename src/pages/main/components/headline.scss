@@ -1,10 +1,13 @@
-@import "../../../ui/calendar_picker/calendar_picker.css";
+@import '../../../common/variables.scss';
+@import "../../../ui/form/form.scss";
+@import "../../../ui/calendar_picker/calendar_picker.scss";
+@import "../../../ui/inputs/inputs.scss";
 
 .headline {
   background-image: url(../../../assets/img/image3.jpg);
   width: 100%;
   min-height: 720px;
-  max-width: var(--app-width);
+  max-width: $app-width;
   height: 90rem;
   max-height: 900px;
   background-size: cover;
@@ -15,7 +18,7 @@
 }
 .headline__text {
   font-size: 14px;
-  color: var(--color-black75);
+  color: $color-black-75;
   max-width: 297px;
   text-align: end;
   margin: auto 134px 20px auto;

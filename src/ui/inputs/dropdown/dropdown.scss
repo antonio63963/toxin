@@ -6,9 +6,6 @@
   position: relative;
   cursor: pointer;
   padding: 12px 16px;
-  background: url(assets/svg/expand_more.svg);
-  background-repeat: no-repeat;
-  background-position: 95%;
 }
 .dropdown h2,
 button {
@@ -26,8 +23,8 @@ button {
   font-size: 12px;
   text-transform: uppercase;
   font-weight: bold;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-black-25);
+  background-color: $color-white;
+  border: 1px solid $color-black-25;
   border-radius: 0 0 4px 4px;
   display: flex;
   flex-direction: column;
@@ -46,13 +43,13 @@ button {
 }
 .outlinedIconButton {
   border-radius: 30px;
-  border: 1px solid var(--color-black-25);
+  border: 1px solid $color-black-25;
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-black-25);
+  color: $color-black-25;
 }
 .dopdown__button-row {
   width: 100%;

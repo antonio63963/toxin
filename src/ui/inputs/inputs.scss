@@ -1,0 +1,13 @@
+@import './textInput/textInput.scss';
+@import './dropdown/dropdown.scss';
+@import './inputWithButton/inputWithButton.scss';
+
+input {
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+input:hover, input:focus {
+  outline: none;
+}
+

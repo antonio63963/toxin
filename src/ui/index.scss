@@ -1,14 +1,11 @@
-@import "../common/variables.css";
-@import "../common/fonts.css";
-@import "./buttons/buttons.css";
-@import "./footer/footer.css";
-@import "./header/header.css";
-@import "./inputs/inputs.css";
+@import "../common/variables.scss";
+@import "../common/fonts.scss";
+
 
 html {
   font-size: calc(1vw / 14.4 * 9);
-  font-family: Montserrat;
-  color: var(--color-black);
+  font-family: 'Montserrat';
+  color: $color-black;
 }
 * {
   margin: 0;
@@ -39,12 +36,12 @@ h3 {
 }
 ul {
   list-style: none;
-  color: var(--color-black50);
+  color: $color-black-50;
 }
 ul > li {
   text-transform: capitalize;
   font-size: 14px;
-  color: var(--color-black50);
+  color: $color-black-50;
   cursor: pointer;
 }
 

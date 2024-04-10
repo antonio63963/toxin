@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 5rem 14rem;
-  max-width: var(--app-width);
+  max-width: $app-width;
 }
 .footer__col {
   max-width: 290px;
@@ -29,7 +29,7 @@
   flex-direction: column;
 }
 .footer__col-list-item {
-  color: var(--color-black-50);
+  color: $color-black-50;
   margin-bottom: 20px;
   white-space: nowrap;
 }
