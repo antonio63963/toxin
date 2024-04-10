@@ -1,24 +1,42 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const fs = require("fs");
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const FileManagerPlugin = require('filemanager-webpack-plugin');
+const FileManagerPlugin = require("filemanager-webpack-plugin");
 
-const devMode = process.env.NODE_ENV === 'development';
+const devMode = process.env.NODE_ENV === "development";
+
+const fileNames = fs.readdirSync("./src/pages");
+const entriesFiles = fileNames.reduce((acc, file) => {
+  acc[file] = `./pages/${file}/${file}.js`;
+  return acc;
+}, {});
+const htmlPages = fileNames.map(
+  (file) =>
+    new HtmlWebpackPlugin({
+      filename: `${file}.html`,
+      template: `./pages/${file}/${file}.pug`,
+      chunks: [file],
+    })
+);
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: "./pages/main/main.js",
+  entry: {
+    ...entriesFiles,
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: devMode ? '[name].js' : '[name].[hash].js',
+    filename: devMode ? "[name].js" : "[name].[hash].js",
     // assetModuleFilename: path.join("assets", "[name].[ext]"),
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./pages/main/main.pug",
-      filename: "index.html",
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: "./pages/index/index.pug",
+    //   filename: "index.html",
+    // }),
+
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
@@ -28,16 +46,17 @@ module.exports = {
         onEnd: {
           copy: [
             {
-              source: path.join('static'),
-              destination: 'dist',
-            }
-          ]
-        }
-      }
-    })
+              source: path.join("static"),
+              destination: "dist",
+            },
+          ],
+        },
+      },
+    }),
+    ...htmlPages,
   ],
   devServer: {
-    watchFiles: "pages/main/main.html",
+    watchFiles: ["pages/index/index.html", "pages/login/login.html"],
     // port: 9000,
   },
   module: {
@@ -58,7 +77,7 @@ module.exports = {
           "css-loader",
           "postcss-loader",
           {
-            loader: 'resolve-url-loader',
+            loader: "resolve-url-loader",
             options: {
               debug: true,
               sourceMap: false,
@@ -66,7 +85,7 @@ module.exports = {
             },
           },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sourceMap: true,
             },
@@ -86,7 +105,7 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
