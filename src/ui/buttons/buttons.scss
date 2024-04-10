@@ -11,15 +11,15 @@ button {
   background: none;
   cursor: pointer;
 }
-a {
+.outlined-button, .filled-button{
   text-decoration: none;
   display: inline-block;
   text-align: center;
   font-family: Montserrat;
-  padding: 14px 20px;
   text-transform: uppercase;
   font-weight: bold;
-  border-radius: 22px;
+  border-radius: 28px;
+  padding: 14px 20px;
   font-size: 12px;
   cursor: pointer;
 }

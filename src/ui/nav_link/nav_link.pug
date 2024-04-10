@@ -1,0 +1,7 @@
+mixin navLink(name, isMoreIcon = false)
+  block 
+  .nav-link(class!= attributes.class)
+    a.nav-link__text= name
+    if(isMoreIcon)
+      .nav-link__icon-wrapper 
+        img.nav-link__icon(src=require('../../assets/svg/expand_more.svg'))

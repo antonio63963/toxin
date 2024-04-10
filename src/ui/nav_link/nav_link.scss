@@ -1,0 +1,22 @@
+@import "../../common/variables.scss";
+
+.nav-link {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.nav-link__icon-wrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link__icon {
+  max-width: 12px;
+}
+.nav-link__text {
+  text-transform: capitalize;
+  font-weight: normal;
+  color: $color-black-50;
+}

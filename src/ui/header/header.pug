@@ -1,4 +1,5 @@
 include ../buttons/buttons.pug
+include ../nav_link/nav_link.pug
 
 mixin appHeader(headerOptions={"userName": null, "logo": "assets/svg/logo.svg", "moreIcon": "assets/svg/expand_more.svg"}) 
   div.header__wrapper
@@ -7,15 +8,20 @@ mixin appHeader(headerOptions={"userName": null, "logo": "assets/svg/logo.svg", 
       //- img(class="header__logo", src="assets/svg/logo.svg", alt="toxin-logo") 
       nav.header__nav
         ul.nav-list
-          li.nav-list__link О нас
-          li.nav-list__link
-            .nav-list__details Услуги 
-              img(src=require("../../assets/svg/expand_more.svg"), alt="icon more") 
-          li.nav-list__link Вакансии
-          li.nav-list__link Новости
-          li.nav-list__link 
-            .nav-list__details Соглашения
-              img(src=require("../../assets/svg/expand_more.svg"), alt="icon more")
+          +navLink('О нас')
+          +navLink('Услуги', true)
+          +navLink('Вакансии')
+          +navLink('Новости')
+          +navLink('Соглашения', true)
+          //- li.nav-list__link О нас
+          //- li.nav-list__link
+          //-   .nav-list__details Услуги 
+          //-     img(src=require("../../assets/svg/expand_more.svg"), alt="icon more") 
+          //- li.nav-list__link Вакансии
+          //- li.nav-list__link Новости
+          //- li.nav-list__link 
+          //-   .nav-list__details Соглашения
+          //-     img(src=require("../../assets/svg/expand_more.svg"), alt="icon more")
         if headerOptions.userName 
           .header__user
             span.header__user-name= headerOptions.userName
