@@ -37,7 +37,7 @@
   align-content: center;
 }
 .nav-list__link {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 .nav-list__details > img {
   margin: 0 0 0 8px;
@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
 }
-.header__auth-options,
+// .header__auth-options,
 .header__signUp-button {
   margin-left: 20px;
 }
@@ -67,6 +67,8 @@
 .header .header__signUp-button {
   padding: 10px 20px;
 }
+
+
 
 @media screen and (min-width: 1440px) {
   .header {
