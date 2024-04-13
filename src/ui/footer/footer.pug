@@ -1,22 +1,30 @@
 include ../inputs/inputWithButton/inputWithButton.pug
 
 mixin footerColItem(title, ...options)
-  .footer__col
+  .footer__col(class!= attributes.class)
     h2.footer__col-title= title
     ul.footer__col-list
       each val in options
-        +navLink()
-        //- li.footer__col-list-item= val
+        +navLink({name: val})(class="footer__col-list-item")
+
 mixin appFooter()
   footer.footer
-    .footer__content 
-      .footer__col
-        img(src=require('../../assets/svg/logo.svg'))
-        p.footer__col-description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-      +footerColItem('Навигация', 'О нас', 'Новости', 'служба поддержки', 'услуги')
-      +footerColItem('О нас', 'О сервисе', 'Наша команда', 'Вакансии', 'Инвесторы')
-      +footerColItem('Служба поддержки', 'Соглашения', 'Сообщества', 'Связь с нами')
-      .footer__col 
-        h2.footer__col-title Подписка
-        p.footer__col-description Получайте специальные предложения и новости сервиса
-        +inputButton('Email')(class="footer__email-input")
+    .footer__content-wrpapper
+      .footer__content 
+        .footer__col.footer__col-logo
+          img.logo(src=require('../../assets/svg/logo.svg'))
+          p.footer__col-description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        +footerColItem('Навигация', 'О нас', 'Новости', 'служба поддержки', 'услуги')
+        +footerColItem('О нас', 'О сервисе', 'Наша команда', 'Вакансии', 'Инвесторы')
+        +footerColItem('Служба поддержки', 'Соглашения', 'Сообщества', 'Связь с нами')
+        .footer__col.footer__col-subscribe 
+          h3.footer__col-title Подписка
+          p.footer__col-description Получайте специальные предложения и новости сервиса
+          +inputButton('Email')(class="footer__email-input")
+      .footer__bottom-block 
+        span.footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
+        .footer__bottom-socials-block 
+          img.footer__bootom-social-icon(src=require('../../assets/svg/twitter.svg'))
+          img.footer__bootom-social-icon(src=require('../../assets/svg/fb.svg'))
+          img.footer__bootom-social-icon(src=require('../../assets/svg/insta.svg'))
+      
