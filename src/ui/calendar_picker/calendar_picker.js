@@ -13,7 +13,7 @@ const calendarTitle = document.querySelector(".calendar__title");
 const selectDateElement = document.querySelector(".calendar__title");
 const cleanButton = document.querySelector(".calendar__button-cancel");
 const submitButton = document.querySelector(".calendar__button-submit");
-console.log(submitButton)
+console.log(submitButton);
 const currentDate = new Date().getDate();
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getUTCFullYear();
@@ -253,8 +253,11 @@ function onClean() {
   insertDates(selectedYear, selectedMonth);
 }
 
-function showCalendar() {
-  calendar.classList.remove("calendar-hide");
+function showCalendar(e) {
+  console.log(e.target)
+  if (e.target.classList.contains("date-picker")) {
+    calendar.classList.toggle("calendar-hide");
+  }
 }
 
 function submitCalendar(e) {
