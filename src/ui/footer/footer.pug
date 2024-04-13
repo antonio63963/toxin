@@ -1,4 +1,5 @@
 include ../inputs/inputWithButton/inputWithButton.pug
+include ../buttons/buttons.pug
 
 mixin footerColItem(title, ...options)
   .footer__col(class!= attributes.class)
@@ -24,6 +25,7 @@ mixin appFooter()
       .footer__bottom-block 
         span.footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
         .footer__bottom-socials-block 
+          //- +iconLinkButton({iconName: 'twitter', href: '#', alt: "Twitter"})(class=".footer__bootom-social-icon")      
           img.footer__bootom-social-icon(src=require('../../assets/svg/twitter.svg'))
           img.footer__bootom-social-icon(src=require('../../assets/svg/fb.svg'))
           img.footer__bootom-social-icon(src=require('../../assets/svg/insta.svg'))

@@ -57,6 +57,7 @@ module.exports = {
   ],
   devServer: {
     watchFiles: ["pages/index/index.html", "pages/login/login.html"],
+    historyApiFallback: true,
     // port: 9000,
   },
   module: {

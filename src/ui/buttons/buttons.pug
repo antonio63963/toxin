@@ -5,9 +5,15 @@ mixin textButton(text)
 mixin iconButton(iconPath, alt)
   button.text-button(class!= attributes.class) 
     img.calendar__prew-month(src=iconPath, alt=alt)
-        
+
+mixin iconLinkButton(options)
+  - const {iconName, href, alt} = options || {};
+
+  a.iconLinkButton(role= "button", href!= href, class!= attributes.class) 
+    img(src=require(`../../assets/svg/${iconName}.svg`))  
+
 mixin outlinedButton(text, href)
-  a.outlined-button(class!= attributes.class, role="button", href!= href)= text
+  a.outlined-button(class!= attributes.class, role="button", href= href)= text
 
 mixin filledButton(text, href)
   a.filled-button(class!= attributes.class, role="button", href!= href)= text
