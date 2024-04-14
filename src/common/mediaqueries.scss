@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+@mixin desctopXL() {
+  @media screen and (max-width: $xlg) {
+    @content;
+  }
+}
+
+@mixin desctopXLMin() {
+  @media screen and (min-width: $xlg) {
+    @content;
+  }
+}
+@mixin desctop() {
+  @media screen and (max-width: $lg) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @media screen and (max-width: $mobile) {
+    @content;
+  }
+}
+@mixin mobileXS() {
+  @media screen and (max-width: $mobileXs) {
+    @content;
+  }
+}

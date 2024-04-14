@@ -23,10 +23,9 @@ mixin appFooter()
           p.footer__col-description Получайте специальные предложения и новости сервиса
           +inputButton('Email')(class="footer__email-input")
       .footer__bottom-block 
+        img.logo.hide(src=require('../../assets/svg/logo.svg'))
         span.footer__bottom-copyright Copyright © 2018 Toxin отель. Все права защищены.
-        .footer__bottom-socials-block 
-          //- +iconLinkButton({iconName: 'twitter', href: '#', alt: "Twitter"})(class=".footer__bootom-social-icon")      
+        .footer__bottom-socials-block      
           img.footer__bootom-social-icon(src=require('../../assets/svg/twitter.svg'))
           img.footer__bootom-social-icon(src=require('../../assets/svg/fb.svg'))
           img.footer__bootom-social-icon(src=require('../../assets/svg/insta.svg'))
-      

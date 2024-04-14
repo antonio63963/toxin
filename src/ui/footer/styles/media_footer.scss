@@ -1,0 +1,32 @@
+@import '../../../common/mediaqueries.scss';
+
+@media screen and (min-width: 1200px) {
+  .footer__content {
+    padding: 50px 140px;
+  }
+  .footer__bottom-block {
+    padding: 23px 140px;
+  }
+}
+
+@include mobile {
+  .footer__content {
+    display: none;
+  }
+  .footer__bottom-block {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px;
+  }
+  .footer__bottom-copyright {
+    font-size: 12px;
+  }
+  .footer img.logo {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer__bottom-socials-block {
+    margin-top: 20px;
+  }
+}

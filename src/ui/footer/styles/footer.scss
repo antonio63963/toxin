@@ -1,4 +1,4 @@
-@import '../../common/variables.scss';
+@import '../../../common/variables.scss';
 
 .footer {
   position: relative;
@@ -70,14 +70,5 @@
   &__bootom-social-icon {
     margin-right: 20px;
     cursor: pointer;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .footer__content {
-    padding: 50px 140px;
-  }
-  .footer__bottom-block {
-    padding: 23px 140px;
   }
 }
