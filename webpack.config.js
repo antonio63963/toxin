@@ -32,11 +32,6 @@ module.exports = {
     // assetModuleFilename: path.join("assets", "[name].[ext]"),
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   template: "./pages/index/index.pug",
-    //   filename: "index.html",
-    // }),
-
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
@@ -56,7 +51,7 @@ module.exports = {
     ...htmlPages,
   ],
   devServer: {
-    watchFiles: ["pages/index/index.html", "pages/login/login.html"],
+    watchFiles: ["pages/index/index.html", "pages/auth/auth.html"],
     historyApiFallback: true,
     // port: 9000,
   },

@@ -17,6 +17,6 @@ mixin appHeader(headerOptions={"userName": null, "logo": "assets/svg/logo.svg", 
             span.header__user-name= headerOptions.userName
         else          
           .header__auth-options
-            +outlinedButton('Войти', './login.html')(class="header__login-button")
+            +outlinedButton('Войти', './auth.html')(class="header__login-button")
             +filledButton('Зарегистрироваться')(class="header__signUp-button")
         img(class="nav-list__icon-burger", src=require("../../assets/svg/burger.svg"), alt="menu")

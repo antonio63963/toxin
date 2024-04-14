@@ -3,13 +3,12 @@ include ../../ui/form/form.pug
 include ../../ui/inputs/textInput/textInput.pug
 
 doctype html
-html(lang="ru")
+html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Toxin
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
   body 
-    //- +appPageLayout()
     +appHeader({"userName": null, "logo": "../../assets/svg/logo.svg", "moreIcon": "../../assets/svg/expand_more.svg"})
     main.loginMain
       +form('Войти')
@@ -18,5 +17,5 @@ html(lang="ru")
         +filledButton('Войти', '#')(class="login-button__enter")
         .signUp-block
           span.signUp-block__text Нет аккаунта на Toxin?
-          +outlinedButton('Создать')
+          +outlinedButton('Создать', './signUp.html')
     +appFooter("../../assets/svg/logo.svg")

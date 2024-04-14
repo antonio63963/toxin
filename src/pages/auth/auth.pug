@@ -1,0 +1,26 @@
+include ../../ui/layouts/pageLayout.pug
+include ../../ui/form/form.pug
+include ../../ui/inputs/textInput/textInput.pug
+include ./components/loginForm/loginForm.pug
+include ./components/signUpForm/signUpForm.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Toxin
+  body 
+    //- +appPageLayout()
+    +appHeader({"userName": null, "logo": "../../assets/svg/logo.svg", "moreIcon": "../../assets/svg/expand_more.svg"})
+    main.loginMain
+      +loginForm
+      +signUpForm
+      //- +form('Войти')
+      //-   +textInput('Email')
+      //-   +textInput('Пароль', "password")(class="login-input__password")
+      //-   +filledButton('Войти', '#')(class="login-button__enter")
+      //-   .signUp-block
+      //-     span.signUp-block__text Нет аккаунта на Toxin?
+      //-     +outlinedButton('Создать', './signUp.html')
+    +appFooter("../../assets/svg/logo.svg")

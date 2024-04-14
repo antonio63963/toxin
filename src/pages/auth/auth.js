@@ -1,2 +1,2 @@
 import "../../ui/index.scss";
-import './login.scss';
+import './auth.scss';

@@ -1,0 +1,6 @@
+
+mixin radioButton(options)
+  - const {label, id, name, isChecked} = options || {};
+  .radioButton(class!= attributes.class)
+    input(type="radio", name=name, id=id, checked=isChecked)
+    label(for=id, class="radioButton__label")=label
