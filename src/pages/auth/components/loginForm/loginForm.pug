@@ -2,11 +2,11 @@ include ../../../../ui/form/form.pug
 include ../../../../ui/inputs/textInput/textInput.pug
 
 mixin loginForm()
-  +form('Войти')
+  +form('Войти')(class!= attributes.class)
     +textInput('Email')
     +textInput('Пароль', "password")(class="login-input__password")
     +filledButton('Войти', '#')(class="login-button__enter")
     .signUp-block
       span.signUp-block__text Нет аккаунта на Toxin?
-      +outlinedButton('Создать', './signUp.html')
+      +outlinedButton('Создать', './signUp.html')(class="loginForm__toSignUp")
       

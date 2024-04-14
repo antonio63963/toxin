@@ -2,7 +2,7 @@
 @import "../../../../ui/toggleButton/toggleButton.scss";
 
 .signUp {
-  h3 {
+  &__subtitle {
     margin: 10px 0 5px 0;
     text-transform: uppercase;
   }
@@ -12,17 +12,15 @@
 .login-input__password {
   margin-bottom: 10px;
 }
-.signUp__birthday {
-}
 .signUp__sex-row {
   display: flex;
   padding: 10px 0;
 }
-.login-input__password {
-  margin-bottom: 20px;
-}
-.login-button__enter {
+.signUp__submit-btn {
   width: 100%;
+}
+.signUp__offers {
+  margin: 10px 0 20px 0;
 }
 .signIn-block {
   display: flex;
