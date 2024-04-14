@@ -1,0 +1,8 @@
+mixin toggleButton(options)
+  - const {label} = options || {};
+
+  label.toggleButton(class!= attributes.class)
+    input.toggleButton__checkbox(type="checkbox")
+    .toggleButton__toggle
+      .toggleButton__bullet
+    span.toggleButton__text= label

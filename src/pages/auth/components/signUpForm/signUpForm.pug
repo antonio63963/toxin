@@ -1,12 +1,13 @@
 include ../../../../ui/form/form.pug
 include ../../../../ui/inputs/textInput/textInput.pug
 include ../../../../ui/radioButton/radioButton.pug
+include ../../../../ui/toggleButton/toggleButton.pug
 
 mixin signUpForm()
   +form('Регистрация аккаунта')(class="signUp")
     +textInput('Имя')(class="signUp__name")
     +textInput('Фамилия')(class="signUp__sirname")
-    
+
     .signUp__sex-row
       +radioButton({label: 'Мужчина', name: 'sex', id: 'man', isChecked: true})
       +radioButton({label: 'Женщина', name: 'sex', id: 'woman', isChecked: false})
@@ -17,8 +18,10 @@ mixin signUpForm()
     h3 данные для входа в сервис
     +textInput('Email')(class="signUp__email")
     +textInput('Пароль', "password")(class="login-input__password")
+
+    +toggleButton({label: 'Получать спецпредложения'}) 
+
     +filledButton('Зарегистрироваться', '#')(class="login-button__enter")
-    .signUp-block
+    .signIn-block
       span.signUp-block__text Уже есть аккаунт на Toxin
       +outlinedButton('Войти', '#')
-      

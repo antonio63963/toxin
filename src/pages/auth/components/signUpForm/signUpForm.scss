@@ -1,4 +1,5 @@
 @import "../../../../ui/radioButton/radioButton.scss";
+@import "../../../../ui/toggleButton/toggleButton.scss";
 
 .signUp {
   h3 {
@@ -23,7 +24,7 @@
 .login-button__enter {
   width: 100%;
 }
-.signUp-block {
+.signIn-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
