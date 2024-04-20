@@ -1,15 +1,8 @@
-include ../../ui/layouts/pageLayout.pug
+include ../../ui/layouts/appPageLayout.pug
 include ../../ui/form/form.pug
 include ../../ui/inputs/textInput/textInput.pug
 
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Document
-  body 
-    +appHeader({"userName": null, "logo": "../../assets/svg/logo.svg", "moreIcon": "../../assets/svg/expand_more.svg"})
++appPageLayout
     main.loginMain
       +form('Войти')
         +textInput('Email')
@@ -18,4 +11,4 @@ html(lang="en")
         .signUp-block
           span.signUp-block__text Нет аккаунта на Toxin?
           +outlinedButton('Создать', './signUp.html')
-    +appFooter("../../assets/svg/logo.svg")
+          
