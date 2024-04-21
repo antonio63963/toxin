@@ -1,0 +1,30 @@
+@import '../../common/variables.scss';
+.room-card {
+  filter: $drop-shadow;
+  border-radius: $radius;
+  width: 270px;
+  height: 257px;
+ 
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    // background-image: url(../../assets/img/rooms/888.jpg);
+    background-repeat: no-repeat;
+    border-radius: $radius $radius 0 0;
+  }
+  &__info {
+  }
+  &__info-top {
+  }
+  &__info-base {
+  }
+  &__info-price {
+  }
+  &__info-bottom {
+  }
+  &__info-rating {
+  }
+  &__recalls {
+  }
+}

@@ -15,7 +15,7 @@ const entriesFiles = fileNames.reduce((acc, file) => {
 const htmlPages = fileNames.map(
   (file) =>
     new HtmlWebpackPlugin({
-      filename: `${file}.html`,
+      filename: devMode ? `pages/${file}.html` : `${file}.html`,
       template: `./pages/${file}/${file}.pug`,
       chunks: [file],
     })
@@ -28,28 +28,28 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: devMode ? "[name].js" : "[name].[hash].js",
-    // assetModuleFilename: path.join("assets", "[name].[ext]"),
+    filename: devMode ? "[name].js" : "js/[name].[hash].js",
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: devMode ? "[name].[contenthash].css ": "styles/[name].[contenthash].css",
     }),
-    new FileManagerPlugin({
-      events: {
-        onEnd: {
-          copy: [
-            {
-              source: path.join("static"),
-              destination: "dist",
-            },
-          ],
-        },
-      },
-    }),
+    // new FileManagerPlugin({
+    //   events: {
+    //     onEnd: {
+    //       copy: [
+    //         {
+    //           source: path.join("static"),
+    //           destination: "dist",
+    //         },
+    //       ],
+    //     },
+    //   },
+    // }),
     ...htmlPages,
   ],
+  // devtool: 'inline-source-map',
   devServer: {
     watchFiles: ["pages/index/index.html", "pages/auth/auth.html"],
     historyApiFallback: true,
@@ -91,6 +91,9 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
+        generator: {
+          filename: "images/[name].[contenthash][ext]",
+        }
       },
       {
         test: /\.svg$/,
@@ -102,6 +105,9 @@ module.exports = {
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]"
+        } 
       },
     ],
   },

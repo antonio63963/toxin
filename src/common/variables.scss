@@ -10,9 +10,12 @@ $color-black-5: #1f20410d;
 $primary-gradient: linear-gradient(#bc9cff, #8ba4f9);
 $opacity-gradient: linear-gradient(#bc9cff40, #8ba4f940);
 $secondary-gradient: linear-gradient(#6fcf97, #66d2ea);
+$drop-shadow: drop-shadow($color-black-5 0 0 20px);
 
 $app-width: 1440px;
 $app-h-padding: 140px;
+
+$radius: 4px;
 
 /* brakepoints */
 $mobileXs: 576px;

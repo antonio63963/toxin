@@ -1,0 +1,12 @@
+mixin roomCard(options)
+  //- - const {img} = options || {};
+  .room-card
+    .room-card__img 
+      img.room-card__img(src=require(`../../assets/img/rooms/${options}`))
+    .room-card__info 
+      .room-card__info-top
+        .room-card__info-base
+        .room-card__info-price
+      .room-card__info-bottom
+        .room-card__info-rating
+        .room-card__recalls
