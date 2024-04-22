@@ -4,23 +4,65 @@
   border-radius: $radius;
   width: 270px;
   height: 257px;
- 
+  background-color: #fff;
 
   &__carousel {
     border-radius: $radius $radius 0 0;
   }
   &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
   }
-  &__info-top {
+  &__info-row {
+    display: flex;
+    justify-content: space-between;
   }
-  &__info-base {
+  &__info-item {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__room-number {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__room-number-value {
+    font-size: 19px;
+    font-weight: bold;
+  }
+  &__isLux {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $color-purple;
+    margin-left: 8px;
+    line-height: 19px;
   }
   &__info-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-black-50;
   }
-  &__info-bottom {
+  &__info-determination {
+    font-size: 12px;
+    text-transform: lowercase;
+    color: $color-black-50;
+    margin-left: 6px;
   }
-  &__info-rating {
+  &__info-devider {
+    border: 1px solid $color-black-25;
+    border-width: 1px 0 0 0;
+    margin: 10px 0;
   }
-  &__recalls {
+  &__recalls-value {
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-black-50;
+  }
+  &__recalls-text {
+    font-size: 14px;
+    color: $color-black-50;
+    margin-left: 6px;
   }
 }
