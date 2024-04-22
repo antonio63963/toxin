@@ -6,11 +6,7 @@
   height: 257px;
  
 
-  &__img {
-    width: 100%;
-    height: 100%;
-    // background-image: url(../../assets/img/rooms/888.jpg);
-    background-repeat: no-repeat;
+  &__carousel {
     border-radius: $radius $radius 0 0;
   }
   &__info {

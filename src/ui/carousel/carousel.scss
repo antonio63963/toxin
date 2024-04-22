@@ -1,0 +1,45 @@
+@import '../../common/variables.scss';
+
+.swiper-slide {
+  text-align: center;
+  background-color: azure;
+  display: flex;
+}
+.swiper-slide>img {
+  width: 100%;
+  object-fit: contain;
+}
+// .swiper_navigation {
+//   position: absolute;
+//   z-index: 20;
+//   top: calc(50% - 22px);
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+// }
+.arrow-button-next, .arrow-button-prev {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 20;
+  top: calc(50% - 22px);
+}
+.arrow-button-next {
+  right: 0;
+}
+.swiper__pagination {
+  text-align: end !important;
+  padding-right: 16px;
+}
+.swiper-pagination-bullet {
+  border: 1px solid $color-white;
+  background: transparent;
+  margin: 0 2px !important;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
