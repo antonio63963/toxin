@@ -1,24 +1,19 @@
 
-mixin carousel() 
-  .swiper(class!= attributes.class) 
-    .swiper-wrapper 
-      .swiper-slide 
-        img(src=require("../../assets/img/rooms/888.jpg"), alt="")
-      .swiper-slide 
-        img(src=require("../../assets/img/rooms/888.jpg"), alt="")
-      .swiper-slide 
-        img(src=require("../../assets/img/rooms/888.jpg"), alt="")
-      .swiper-slide 
-        img(src=require("../../assets/img/rooms/888.jpg"), alt="")
-      .swiper-slide 
-        img(src=require("../../assets/img/rooms/888.jpg"), alt="")
-
-    .arrow-button-prev
-      img(src=require("../../assets/svg/swiper_prev.svg"), alt="") 
-    .arrow-button-next
-      img(src=require("../../assets/svg/swiper_next.svg"), alt="") 
-    .swiper-pagination.swiper__pagination
-    //- .swiper-button-prev
-  script 
-    include carousel.js 
-
+mixin carousel(imgArr) 
+  if imgArr != null && imgArr.length
+    .swiper(class!= attributes.class) 
+      .swiper-wrapper 
+        each val, index in imgArr
+          .swiper-slide 
+            img(src=require(`../../assets/img/rooms/${val}.jpg`), alt=`${val}-room`)
+      .arrow-button-prev
+        img(src=require("../../assets/svg/swiper_prev.svg"), alt="") 
+      .arrow-button-next
+        img(src=require("../../assets/svg/swiper_next.svg"), alt="") 
+      .swiper-pagination.swiper__pagination
+      //- .swiper-button-prev
+    script 
+      include carousel.js 
+  else 
+    .no-photo(class!= attributes.class) 
+      h3 No Photo
