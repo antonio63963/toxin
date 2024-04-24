@@ -111,7 +111,7 @@
     }
   }
 
-  input[type="range"] {
+  input.range-slider__input {
     position: absolute;
     pointer-events: none;
     -webkit-appearance: none;

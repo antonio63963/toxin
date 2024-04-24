@@ -1,5 +1,5 @@
 function createslider(element) {
-  const inputs = element.querySelectorAll("input");
+  const inputs = element.querySelectorAll(".range-slider__input");
   console.log(inputs)
   const thumbLeft = element.querySelector(".thumb.left");
   const thumbRight = element.querySelector(".thumb.right");
