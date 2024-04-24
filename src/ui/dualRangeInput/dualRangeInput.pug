@@ -1,0 +1,18 @@
+mixin dualRangeInput(options) 
+  - const {min, max, valueMin, valueMax} = options || {};
+  - const max1 = max - 1; 
+  .wrapper
+    .range-slider
+      .range-labels 
+        span.range-label.range-label-start 0
+        span.range-label.range-label-end 100
+      input(type="range", value=valueMin, max=max1)
+      input(type="range", value=valueMax, max=max)
+
+      .track-wrapper
+        .track 
+        .range-between 
+        .thumb.left 
+        .thumb.right
+
+    

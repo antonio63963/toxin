@@ -1,7 +1,43 @@
 include ../../ui/layouts/appPageLayout.pug
 include ../../ui/roomCard/roomCard.pug
+include ../../ui/dualRangeInput/dualRangeInput.pug
+
+- const rooms_data = [
+-  {
+-   number: 888,
+-   isLux: true,
+-   price: 9990,
+-   rate: 5,
+-   images: [
+-     '888', '888', '888', '888'
+-  ],
+-    recallsAmount: 145
+-  },
+-  {
+-    number: 840,
+-    isLux: false,
+-    price: 9900,
+-    rate: 4,
+-    images: [
+-      '840', '840', '840', '840'
+-    ],
+-    recallsAmount: 65
+-  },
+-  {
+-    number: 980,
+-    isLux: true,
+-    price: 8500,
+-    rate: 3,
+-    images: [
+-      '980', '980', '980', '980'
+-    ],
+-    recallsAmount: 35
+-  },
+-]
 
 +appPageLayout 
-  .main
-    h1 rooms
-    +roomCard('888.jpg')
+  main
+    +dualRangeInput({min: 0, max: 150, valueMin: 0, valueMax: 150})
+    //- .rooms-row
+    //- each val, index in rooms_data 
+    //-   +roomCard(val)
