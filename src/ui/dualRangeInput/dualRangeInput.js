@@ -1,6 +1,6 @@
 function createslider(element) {
   const inputs = element.querySelectorAll("input");
-
+  console.log(inputs)
   const thumbLeft = element.querySelector(".thumb.left");
   const thumbRight = element.querySelector(".thumb.right");
   const rangeBetween = element.querySelector(".range-between");

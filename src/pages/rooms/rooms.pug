@@ -38,6 +38,8 @@ include ../../ui/dualRangeInput/dualRangeInput.pug
 +appPageLayout 
   main
     +dualRangeInput({min: 0, max: 150, valueMin: 0, valueMax: 150})
-    //- .rooms-row
-    //- each val, index in rooms_data 
-    //-   +roomCard(val)
+    .rooms-row
+      each val, index in rooms_data 
+        +roomCard(val)
+  script(type="module")
+    include ../../ui/dualRangeInput/dualRangeInput.js     
