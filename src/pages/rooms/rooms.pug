@@ -1,6 +1,7 @@
 include ../../ui/layouts/appPageLayout.pug
 include ../../ui/roomCard/roomCard.pug
 include ../../ui/dualRangeInput/dualRangeInput.pug
+include ./components/sidebarRooms/sidebarRooms.pug
 
 - const rooms_data = [
 -  {
@@ -36,10 +37,10 @@ include ../../ui/dualRangeInput/dualRangeInput.pug
 -]
 
 +appPageLayout 
-  main
-    +dualRangeInput({min: 0, max: 150, valueMin: 0, valueMax: 150})
-    .rooms-row
+  main.rooms
+    //- +dualRangeInput({min: 0, max: 150, valueMin: 0, valueMax: 150})
+    +sidebarRooms()(class="rooms__sidebar")
+    section.rooms__row
       each val, index in rooms_data 
         +roomCard(val)
-  script(type="module")
-    include ../../ui/dualRangeInput/dualRangeInput.js     
+      

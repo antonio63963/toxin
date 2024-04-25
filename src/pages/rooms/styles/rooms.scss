@@ -1,3 +1,21 @@
-.main {
-  margin-top: 100px;
+@import '../../../common/variables.scss';
+
+.rooms {
+  // margin-top: 100px;
+  max-width: $app-width;
+  position: relative;
+  justify-content: start;
+  padding: 100px clamp(20px, 14rem, 140px);
+
+  &__sidebar {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    background-color: blue;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }

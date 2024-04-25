@@ -8,7 +8,7 @@ mixin dropdown-item(title, amount)
 
 mixin dropdown(label, defaultValue, options)
   .text-input
-    span.text-input__label= label
+    label.text-input__label= label
     div.text-input__input.dropdown(class!= attributes.class)
       span.dropdown__result= defaultValue
       img.dropdown__icon-more(src=require("../../assets/svg/expand_more.svg"))

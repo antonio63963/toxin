@@ -1,0 +1,15 @@
+include ../../../../ui/dualRangeInput/dualRangeInput.pug
+
+mixin rangePrice()
+  .range-price(class!= attributes.class) 
+    .range-price__head
+      h3.label.range-price__label диапазон цены
+      .range-price__values 
+        span.range-price__min-selected
+        span.range-price__max-selected
+    +dualRangeInput({
+      min: 5000, 
+      max: 10000, 
+      valueMin: 5000, 
+      valueMax: 10000
+    })

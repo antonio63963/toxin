@@ -25,6 +25,11 @@ function createslider(element) {
   );
 }
 
+function setSelectedValue(elem, input) {
+  console.log(elem)
+  // elem.textContent = input.value;
+}
+
 function setLabelValue(label, input) {
   label.innerHTML = `${input.value}`;
 }
@@ -63,12 +68,20 @@ function setEvents(
 ) {
   inputStart.addEventListener("input", () => {
     setStartValueCustomSlider(inputStart, inputEnd, thumbLeft, rangeBetween);
-    setLabelValue(labelMin, inputStart);
+    const showPriceMin = document.querySelector('.range-price__min-selected');
+    showPriceMin.textContent = inputStart.value+'₽';
+    if(labelMin) {
+      setLabelValue(labelMin, inputStart);
+    }
   });
 
   inputEnd.addEventListener("input", () => {
     setEndValueCustomSlider(inputEnd, inputStart, thumbRight, rangeBetween);
-    setLabelValue(labelMax, inputEnd);
+    const showPriceMax = document.querySelector('.range-price__max-selected');
+    showPriceMax.textContent = inputEnd.value + '₽';
+    if(labelMax) {
+      setLabelValue(labelMax, inputEnd);
+    }
   });
 
   // add css clases on hover and drag

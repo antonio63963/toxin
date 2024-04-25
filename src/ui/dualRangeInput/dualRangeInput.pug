@@ -1,11 +1,12 @@
 mixin dualRangeInput(options) 
-  - const {min, max, valueMin, valueMax} = options || {};
+  - const {min, max, valueMin, valueMax, isShownLabels} = options || {};
   - const max1 = max - 1; 
-  .wrapper
+  .wrapper(class!= attributes.class)
     .range-slider
-      .range-labels 
-        span.range-label.range-label-start 0
-        span.range-label.range-label-end 100
+      if(isShownLabels)
+        .range-labels 
+          span.range-label.range-label-start= min
+          span.range-label.range-label-end= max
       input.range-slider__input(type="range", value=valueMin, max=max1)
       input.range-slider__input(type="range", value=valueMax, max=max)
       .track-wrapper

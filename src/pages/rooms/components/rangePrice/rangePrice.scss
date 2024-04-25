@@ -1,0 +1,13 @@
+.range-price {
+  display: flex;
+  flex-direction: column;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__label {
+
+  }
+}
