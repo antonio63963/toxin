@@ -1,3 +1,13 @@
+function formatPrice(value) {
+  if(value.length == 4) {
+    return `${value[0]} ${value.slice(1)}₽`;
+  }
+  else if(value.length == 5) {
+    return `${value.substr(0, 2)} ${value.slice(2)}₽`;
+  } else {
+    return '0₽';
+  }
+}
 function createslider(element) {
   const inputs = element.querySelectorAll(".range-slider__input");
   console.log(inputs)
@@ -23,11 +33,6 @@ function createslider(element) {
     labelMax,
     rangeBetween
   );
-}
-
-function setSelectedValue(elem, input) {
-  console.log(elem)
-  // elem.textContent = input.value;
 }
 
 function setLabelValue(label, input) {
@@ -69,7 +74,7 @@ function setEvents(
   inputStart.addEventListener("input", () => {
     setStartValueCustomSlider(inputStart, inputEnd, thumbLeft, rangeBetween);
     const showPriceMin = document.querySelector('.range-price__min-selected');
-    showPriceMin.textContent = inputStart.value+'₽';
+    showPriceMin.textContent = formatPrice(inputStart.value);
     if(labelMin) {
       setLabelValue(labelMin, inputStart);
     }
@@ -78,7 +83,7 @@ function setEvents(
   inputEnd.addEventListener("input", () => {
     setEndValueCustomSlider(inputEnd, inputStart, thumbRight, rangeBetween);
     const showPriceMax = document.querySelector('.range-price__max-selected');
-    showPriceMax.textContent = inputEnd.value + '₽';
+    showPriceMax.textContent = formatPrice(inputEnd.value);
     if(labelMax) {
       setLabelValue(labelMax, inputEnd);
     }
