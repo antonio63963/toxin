@@ -1,15 +1,18 @@
 include ../../../../ui/dualRangeInput/dualRangeInput.pug
 
-mixin rangePrice()
+mixin rangePrice(options)
+  - const {min, max} = options || {}
   .range-price(class!= attributes.class) 
     .range-price__head
       h3.label.range-price__label диапазон цены
       .range-price__values 
-        span.range-price__min-selected
-        span.range-price__max-selected
+        span.range-price__min-selected= min+'₽'
+        span= ' - '
+        span.range-price__max-selected= max+'₽'
     +dualRangeInput({
-      min: 5000, 
-      max: 10000, 
+      min: 0, 
+      max: 20000, 
       valueMin: 5000, 
       valueMax: 10000
     })
+    p.range-price__description Стоимость за сутки пребывания в номере
