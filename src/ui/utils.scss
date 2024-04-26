@@ -5,8 +5,14 @@
 .hide {
   display: none;
 }
+.contentWithLabel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .label {
   font-size: 12px;
   text-transform: uppercase;
   white-space: nowrap;
+  font-weight: bold;
 }

@@ -1,6 +1,8 @@
+@import '../../../../ui/utils.scss';
 @import '../../../../ui/dropdownInput/dropdownInput.scss';
 @import '../../../../ui/inputs/inputs.scss';
 @import '../rangePrice/rangePrice.scss';
+@import '../houseRules/houseRules.scss';
 
 .sidebar-rooms {
   margin-right: clamp(20px, 6rem, 60px);
@@ -10,7 +12,7 @@
   &__guests {
     margin-top: 20px;
    }
-  &__rangePrice {
+  &__rangePrice, &__houseRules  {
     margin-top: 30px;
   }
 }

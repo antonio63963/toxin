@@ -2,8 +2,8 @@
 mixin dropdownInput(options)
   - const {label, defaultValue, inputClass} = options || {};
   
-  .dropdownIput(class!= attributes.class)
-    h3.dropdownIput__label= label
+  .dropdownIput.contentWithLabel(class!= attributes.class)
+    h3.dropdownIput__label.label= label
     div.dropdownIput__input(class!= inputClass)
       span.dropdownIput__value= defaultValue
       img.dropdown__icon-more(src=require("../../assets/svg/expand_more.svg"))

@@ -1,0 +1,43 @@
+@import "../../common/variables.scss";
+
+
+.checkbox {
+  display: flex;
+  $size: 20px;
+
+  &__input {
+    position: absolute;
+    width: $size;
+    height: $size;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__styled {
+    width: $size;
+    min-width: $size;
+    height: $size;
+    border: 1px solid $color-black-25;
+    border-radius: $radius;
+    margin-right: 10px;
+    text-align: center;
+  }
+  &__icon {
+    pointer-events: none;
+    display: none;
+  }
+  &__input:checked+&__styled>&__icon {
+    display: inline-block;
+  }
+  &__input:checked+&__styled {
+    border-color: $color-purple;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $color-black-50;
+    max-width: 192px;
+    line-height: 18px;
+    margin-top: 2px;
+  }
+}

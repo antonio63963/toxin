@@ -1,0 +1,10 @@
+@import "../../../../ui/checkbox/checkbox.scss";
+
+.house-rules {
+  &__isSmoking {
+    margin-top: 16px;
+  }
+  &__isPet, &__isGuest {
+    margin-top: 10px;
+  }
+}

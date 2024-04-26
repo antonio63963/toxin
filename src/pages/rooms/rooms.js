@@ -10,4 +10,3 @@ import "../../ui/carousel/carousel.scss";
 import "../../ui/dualRangeInput/dualRangeInput.js";
 import "../../ui/dualRangeInput/dualRangeInput.scss";
 
-// import "../../ui/inputs/guestsSelect/guestsSelect.js";

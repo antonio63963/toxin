@@ -1,0 +1,8 @@
+include ../../../../ui/checkbox/checkbox.pug
+
+mixin houseRules()
+  .house-rules.contentWithLabel(class!= attributes.class)
+    h3.house-rules.label Правила дома
+    +checkbox('Можно курить', 'smok', false)(class="house-rules__isSmoking")
+    +checkbox('Можно с питомцами', 'pet', true)(class="house-rules__isPet")
+    +checkbox('Можно пригласить гостей (до 10 человек)', 'guests', true)(class="house-rules__isGuest")

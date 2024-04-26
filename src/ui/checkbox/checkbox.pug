@@ -1,0 +1,6 @@
+mixin checkbox(label, name, isChecked)
+  .checkbox(class!= attributes.class)
+    input.checkbox__input(type="checkbox", name= name, id=name checked= isChecked)
+    label.checkbox__styled(for=name)
+      img.checkbox__icon(src=require("../../assets/svg/checked.svg"), alt="")
+    label.checkbox__label(for=name)= label
