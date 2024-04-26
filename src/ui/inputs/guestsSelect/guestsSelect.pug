@@ -6,9 +6,9 @@ mixin dropdown-item(title, amount)
             h3.dropdown-list__value 0
             .outlinedIconButton.plus +
 
-mixin dropdown(label, defaultValue, options)
+mixin guestsSelect( defaultValue, options)
   .text-input
-    label.text-input__label= label
+    label.text-input__label Гости
     div.text-input__input.dropdown(class!= attributes.class)
       span.dropdown__result= defaultValue
       img.dropdown__icon-more(src=require("../../assets/svg/expand_more.svg"))
@@ -20,4 +20,4 @@ mixin dropdown(label, defaultValue, options)
           +textButton('Отчистить')
           +textButton('Применить')
   script 
-    include dropdown.js
+    include guestsSelect.js

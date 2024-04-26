@@ -1,8 +1,9 @@
 include ../../../../ui/dropdownInput/dropdownInput.pug
 include ../rangePrice/rangePrice.pug
+include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
 
 mixin sidebarRooms()
   aside.sidebar-rooms 
     +dropdownInput({label: 'Даты пребывания в отеле', defaultValue: '19 авг - 23 авг', inputClass: 'rooms__living-dates'})
-    +dropdownInput({label: 'Гости', defaultValue: '3 гостя, 1 младенец', inputClass: 'rooms__guests'})(class="sidebar-rooms__guests")
+    +guestsSelect('3 гостя, 1 младенец')
     +rangePrice({min: 5000, max: 10000})(class="sidebar-rooms__rangePrice")

@@ -1,4 +1,5 @@
 @import '../../../../ui/dropdownInput/dropdownInput.scss';
+@import '../../../../ui/inputs/inputs.scss';
 @import '../rangePrice/rangePrice.scss';
 
 .sidebar-rooms {
@@ -8,7 +9,7 @@
 
   &__guests {
     margin-top: 20px;
-  }
+   }
   &__rangePrice {
     margin-top: 30px;
   }
