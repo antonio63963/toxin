@@ -1,0 +1,17 @@
+include ../../../../ui/checkbox/checkbox.pug
+
+mixin accessList()
+  .access-list.contentWithLabel(class!= attributes.class)
+    h3.label доступность
+     +checkbox({
+      title: 'Широкий коридор',
+      text: 'Ширина коридоров в номере не менее 91 см.', 
+      name: 'corridor',
+      isChecked: false
+    })(class="access-list__corridor")
+     +checkbox({
+      title: 'Помощник для инвалидов',
+      text: 'На 1 этаже вас встретит специалист  и проводит до номера.', 
+      name: 'invalid',
+      isChecked: false
+    })(class="access-list__invalid")

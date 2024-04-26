@@ -2,6 +2,7 @@ include ../../../../ui/dropdownInput/dropdownInput.pug
 include ../rangePrice/rangePrice.pug
 include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
 include ../houseRules/houseRules.pug
+include ../accessList/accessList.pug
 
 mixin sidebarRooms()
   aside.sidebar-rooms 
@@ -9,3 +10,4 @@ mixin sidebarRooms()
     +guestsSelect('3 гостя, 1 младенец')
     +rangePrice({min: 5000, max: 10000})(class="sidebar-rooms__rangePrice")
     +houseRules()(class="sidebar-rooms__houseRules")
+    +accessList()(class="sidebar-rooms__accessList")

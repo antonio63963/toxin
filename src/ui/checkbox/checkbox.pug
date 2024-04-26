@@ -6,5 +6,7 @@ mixin checkbox(options)
       img.checkbox__icon(src=require("../../assets/svg/checked.svg"), alt="")
     label.checkbox__description(for=name)
       if(title)
-        h3.checkbox__title
-      p.checkbox__text= text  
+        h3.checkbox__title= title
+        p.checkbox__subtitle= text
+      else
+        p.checkbox__text= text  

@@ -3,6 +3,8 @@
 @import '../../../../ui/inputs/inputs.scss';
 @import '../rangePrice/rangePrice.scss';
 @import '../houseRules/houseRules.scss';
+@import '../accessList/accessList.scss';
+
 
 .sidebar-rooms {
   margin-right: clamp(20px, 6rem, 60px);
@@ -12,7 +14,7 @@
   &__guests {
     margin-top: 20px;
    }
-  &__rangePrice, &__houseRules  {
+  &__rangePrice, &__houseRules, &__accessList {
     margin-top: 30px;
   }
 }
