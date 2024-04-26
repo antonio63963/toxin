@@ -1,6 +1,10 @@
-mixin checkbox(label, name, isChecked)
+mixin checkbox(options)
+  - const {title, text, name, isChecked} = options || {}
   .checkbox(class!= attributes.class)
     input.checkbox__input(type="checkbox", name= name, id=name checked= isChecked)
     label.checkbox__styled(for=name)
       img.checkbox__icon(src=require("../../assets/svg/checked.svg"), alt="")
-    label.checkbox__label(for=name)= label
+    label.checkbox__description(for=name)
+      if(title)
+        h3.checkbox__title
+      p.checkbox__text= text  

@@ -22,18 +22,29 @@
     margin-right: 10px;
     text-align: center;
   }
+
   &__icon {
     pointer-events: none;
     display: none;
   }
+
   &__input:checked+&__styled>&__icon {
     display: inline-block;
   }
+
   &__input:checked+&__styled {
     border-color: $color-purple;
   }
 
-  &__label {
+  &__description {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__text {
     font-size: 14px;
     color: $color-black-50;
     max-width: 192px;
