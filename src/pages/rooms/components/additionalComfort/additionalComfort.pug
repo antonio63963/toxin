@@ -1,0 +1,16 @@
+include ../../../../ui/accordion/accordion.pug
+include ../../../../ui/checkbox/checkbox.pug
+
+mixin additionalComfort()
+  -const listItems = [
+  -  {text: 'Завтрак', name: "deaner", isChecked: false},
+  - {text: 'Письменный стол', name: "table", isChecked: true},
+  -  {text: 'Стул для кормления', name: "stool", isChecked: true},
+  -  {text: 'Кроватка', name: "babby-bed", isChecked: true},
+  -  {text: 'Телевизор', name: "tv", isChecked: false},
+  -  {text: 'Шампунь', name: "shampoo", isChecked: false},
+  -];
+  +accordion({title: 'Дополнительный комфорт'})(class!= attributes.class)
+    each val in listItems
+      li
+        +checkbox(val)(class="additionalComfort__item")

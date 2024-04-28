@@ -1,0 +1,12 @@
+
+mixin accordion(options) 
+  - const {title} = options || {};
+
+  .accordion(class!= attributes.class)
+    .accordion__top 
+      h3.accordion__title.label= title 
+      img.accordion__icon(src=require('../../assets/svg/expand_more.svg'), alt="expand more icon")
+    ul.accordion__list
+      block
+    script 
+      include accordion.js  

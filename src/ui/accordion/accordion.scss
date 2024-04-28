@@ -1,0 +1,29 @@
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  &__list {
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+    transition: all .3s ease-in;
+    overflow-y: hidden;
+  }
+  &__icon {
+    transition: all .3s ease-in;
+  }
+  &__top.open>&__icon {
+    transform: rotate(180deg);
+  }
+  &__top.open+&__list {
+    height: 180px;
+  }
+}

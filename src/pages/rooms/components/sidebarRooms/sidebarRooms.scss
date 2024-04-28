@@ -4,6 +4,7 @@
 @import "../rangePrice/rangePrice.scss";
 @import "../houseRules/houseRules.scss";
 @import "../accessList/accessList.scss";
+@import "../additionalComfort/additionalComfort.scss";
 
 .sidebar-rooms {
   margin-right: clamp(20px, 6rem, 60px);
@@ -16,7 +17,8 @@
   &__rangePrice,
   &__houseRules,
   &__accessList,
-  &__comfort {
+  &__comfort, &__additional {
     margin-top: 30px;
   }
+
 }

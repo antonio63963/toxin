@@ -4,6 +4,7 @@ include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
 include ../houseRules/houseRules.pug
 include ../accessList/accessList.pug
 include ../comfortSelect/comfortSelect.pug
+include ../additionalComfort/additionalComfort.pug
 
 mixin sidebarRooms()
   aside.sidebar-rooms 
@@ -21,3 +22,4 @@ mixin sidebarRooms()
       {title: 'кровати', className: 'sidebar-rooms__bedsAmount'},
       {title: 'ванные комнаты', className: 'sidebar-rooms__bathroomsAmount'},
     ]})
+    +additionalComfort()(class="sidebar-rooms__additional")
