@@ -1,21 +1,21 @@
-//- mixin dropdown-item(title, amount)
-//-   li.dropdown__list-item(class!= attributes.class)
-//-           h2= title 
-//-           .dropdown__list-counter 
-//-             .outlinedIconButton.minus -
-//-             h3.dropdown-list__value 0
-//-             .outlinedIconButton.plus +
-
 include ../../dropdownInput/dropdownInput.pug
 include ../../dropdownInput/dropdownInputListAmount.pug
+include ../../buttons/buttons.pug
 
 mixin guestsSelect(options)
-  - const {listItems} = options || {};
+  - const {title, listItems} = options || {};
    +dropdownInput({
-      label: "гости",
+      label: title,
        defaultValue: "3 гостя, 1 младенец", 
        inputClass: "sidebar-rooms__guests-input"
     })(class="sidebar-rooms__guests")
-    +dropdownInputListAmount(listItems)(class="sidebar-rooms__guests-list")
+    +dropdownInputListAmount([
+    {title: 'Взрослые', className: "adults-amount"},
+    {title: 'Дети', className: "children-amount"},
+    {title: 'Младенцы', className: "baby-amount"},
+  ])(class="sidebar-rooms__guests-list")
+      .dopdown__button-row
+        +textButton('Отчистить')
+        +textButton('Применить')
   script 
     include guestsSelect.js

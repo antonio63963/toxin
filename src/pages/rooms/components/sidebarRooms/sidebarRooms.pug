@@ -12,11 +12,7 @@ mixin sidebarRooms()
       defaultValue: '19 авг - 23 авг', 
       inputClass: 'rooms__living-dates'
     })
-    +guestsSelect({listItems: [
-    {title: 'Взрослые', className: "adults-amount"},
-    {title: 'Дети', className: "children-amount"},
-    {title: 'Младенцы', className: "baby-amount"},
-  ]})
+    +guestsSelect({title: "гости"})
     +rangePrice({min: 5000, max: 10000})(class="sidebar-rooms__rangePrice")
     +houseRules()(class="sidebar-rooms__houseRules")
     +accessList()(class="sidebar-rooms__accessList")

@@ -6,7 +6,7 @@ include ../../../ui/buttons/buttons.pug
 div.headline
   +form('Найдём номера под ваши пожелания')(class="search-form")
     +calendar-picker()
-    +guestsSelect('Сколько гостей')
+    +guestsSelect({title: 'Сколько гостей'})
     +filledButton('Подобрать номер', './rooms.html')(class="search-form__submit")
 
   p.headline__text Лучшие номера для вашей работы, отдыха и просто вдохновения
