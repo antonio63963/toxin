@@ -1,0 +1,15 @@
+include ../../../../ui/dropdownInput/dropdownInput.pug
+include ../../../../ui/dropdownInput/dropdownInputListAmount.pug
+
+mixin comfortSelect(options)
+  - const {listItems} = options || {};
+
+  +dropdownInput({
+      label: "Удобства номера",
+       defaultValue: "2 спальни, 2 кровати", 
+       inputClass: "sidebar-rooms__comfort-input"
+    })(class="sidebar-rooms__comfort")
+    +dropdownInputListAmount(listItems)(class="sidebar-rooms__comfort-list")
+    script 
+      include comfortSelect.js
+

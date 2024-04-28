@@ -5,6 +5,7 @@
     margin-bottom: 6px;
   }
   &__input {
+    position: relative;
     padding: 16px 12px;
     position: relative;
     cursor: pointer;
@@ -18,4 +19,65 @@
     font-size: 14px;
     color: $color-black-75;
   }
+}
+// listAmount
+.dropdown__list {
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  z-index: 998;
+  width: calc(100% + 2px);
+  padding: 7px 16px;
+  padding-right: 7px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: $color-white;
+  border: 1px solid $color-black-25;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.dropdown__list-title {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $color-black;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dropdown__list-counter {
+  width: 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.outlinedIconButton {
+  border-radius: 30px;
+  border: 1px solid $color-black-25;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-black-25;
+}
+.dopdown__button-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+.dropdown-open {
+  border-radius: 4px 4px 0 0;
+}
+.dropdown__list-hide {
+  display: none;
 }

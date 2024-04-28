@@ -3,11 +3,25 @@ include ../rangePrice/rangePrice.pug
 include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
 include ../houseRules/houseRules.pug
 include ../accessList/accessList.pug
+include ../comfortSelect/comfortSelect.pug
 
 mixin sidebarRooms()
   aside.sidebar-rooms 
-    +dropdownInput({label: 'Даты пребывания в отеле', defaultValue: '19 авг - 23 авг', inputClass: 'rooms__living-dates'})
-    +guestsSelect('3 гостя, 1 младенец')
+    +dropdownInput({
+      label: 'Даты пребывания в отеле', 
+      defaultValue: '19 авг - 23 авг', 
+      inputClass: 'rooms__living-dates'
+    })
+    +guestsSelect({listItems: [
+    {title: 'Взрослые', className: "adults-amount"},
+    {title: 'Дети', className: "children-amount"},
+    {title: 'Младенцы', className: "baby-amount"},
+  ]})
     +rangePrice({min: 5000, max: 10000})(class="sidebar-rooms__rangePrice")
     +houseRules()(class="sidebar-rooms__houseRules")
     +accessList()(class="sidebar-rooms__accessList")
+    +comfortSelect({listItems: [
+      {title: 'спальни', className: 'sidebar-rooms__bedroomsAmount'},
+      {title: 'кровати', className: 'sidebar-rooms__bedsAmount'},
+      {title: 'ванные комнаты', className: 'sidebar-rooms__bathroomsAmount'},
+    ]})

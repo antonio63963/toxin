@@ -1,23 +1,21 @@
-mixin dropdown-item(title, amount)
-  li.dropdown__list-item(class!= attributes.class)
-          h2= title 
-          .dropdown__list-counter 
-            .outlinedIconButton.minus -
-            h3.dropdown-list__value 0
-            .outlinedIconButton.plus +
+//- mixin dropdown-item(title, amount)
+//-   li.dropdown__list-item(class!= attributes.class)
+//-           h2= title 
+//-           .dropdown__list-counter 
+//-             .outlinedIconButton.minus -
+//-             h3.dropdown-list__value 0
+//-             .outlinedIconButton.plus +
 
-mixin guestsSelect( defaultValue, options)
-  .text-input
-    label.text-input__label Гости
-    div.text-input__input.dropdown(class!= attributes.class)
-      span.dropdown__result= defaultValue
-      img.dropdown__icon-more(src=require("../../assets/svg/expand_more.svg"))
-      ul.dropdown__list.dropdown__list-hide
-        +dropdown-item('Взрослые')(class="adults-amount")
-        +dropdown-item('Дети')(class="children-amount")
-        +dropdown-item('Младенцы')(class="baby-amount")
-        .dopdown__button-row
-          +textButton('Отчистить')
-          +textButton('Применить')
+include ../../dropdownInput/dropdownInput.pug
+include ../../dropdownInput/dropdownInputListAmount.pug
+
+mixin guestsSelect(options)
+  - const {listItems} = options || {};
+   +dropdownInput({
+      label: "гости",
+       defaultValue: "3 гостя, 1 младенец", 
+       inputClass: "sidebar-rooms__guests-input"
+    })(class="sidebar-rooms__guests")
+    +dropdownInputListAmount(listItems)(class="sidebar-rooms__guests-list")
   script 
     include guestsSelect.js

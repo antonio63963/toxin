@@ -1,10 +1,8 @@
-const dropdown = document.querySelector('.dropdown');
+const dropdown = document.querySelector('.sidebar-rooms__guests');
 const dropdownList= document.querySelector('.dropdown__list');
 
-console.log(dropdown)
-
-dropdown.addEventListener('click', () => {
-console.log('drpdwn')
+dropdown.addEventListener('click', (e) => {
+  if(e.target.closest('.dropdown__list')) return;
   dropdown.classList.toggle('dropdown-open');
   dropdownList.classList.toggle('dropdown__list-hide');
 })

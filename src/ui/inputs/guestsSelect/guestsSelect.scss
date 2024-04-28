@@ -39,6 +39,7 @@ button {
 }
 .dropdown__list-counter {
   width: 92px;
+  min-width: 92px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +53,11 @@ button {
   align-items: center;
   justify-content: center;
   color: $color-black-25;
+}
+.dropdown-list__value {
+  font-size: 12px;
+  font-weight: bold;
+  color: $color-black;
 }
 .dopdown__button-row {
   width: 100%;

@@ -1,0 +1,15 @@
+mixin dropdown-item(title, amount)
+  li.dropdown__list-item(class!= attributes.class)
+    h2.dropdown__list-title= title 
+    .dropdown__list-counter 
+      .outlinedIconButton.minus -
+      h3.dropdown-list__value 0
+      .outlinedIconButton.plus +
+
+//- listItems = {string: title, string: className}
+mixin dropdownInputListAmount(listItems)
+  if(listItems && listItems.length)
+    ul.dropdown__list.dropdown__list-hide(class!= attributes.class)
+      each val in listItems 
+        +dropdown-item(val.title)(class=val.className)
+      block
