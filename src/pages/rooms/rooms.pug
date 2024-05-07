@@ -42,5 +42,6 @@ include ./components/sidebarRooms/sidebarRooms.pug
     +sidebarRooms()
     section.rooms__row
       each val, index in rooms_data 
-        +roomCard(val)(class='rooms__row-card')
+        a(href="./roomDetails.html")
+          +roomCard(val)(class='rooms__row-card')
       

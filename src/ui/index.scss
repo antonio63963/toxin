@@ -2,6 +2,10 @@
 @import "../common/fonts.scss";
 @import "./utils.scss";
 @import "../common/mediaqueries.scss";
+@import "./header/styles/index.scss";
+@import "./footer/styles/index.scss";
+@import "./buttons/buttons.scss";
+@import "./inputs/inputs.scss";
 
 html {
   font-size: calc(1vw / 14.4 * 9);
