@@ -3,8 +3,13 @@
   filter: $drop-shadow;
   border-radius: $radius;
   width: 270px;
-  height: 257px;
+  min-width: 270px;
+  max-width: calc(50% - 20px);
+  flex-grow: 2;
+  // height: 257px;
   background-color: #fff;
+  margin-left: 12px;
+  margin-bottom: 20px;
 
   &__carousel {
     border-radius: $radius $radius 0 0;

@@ -1,0 +1,17 @@
+@import '../../../common/mediaqueries.scss';
+
+@media screen and (max-width: 1044px) {
+  .room-card.rooms__row-card {
+   max-width: 100%;
+  }
+}
+
+@include mobile() {
+  main>.sidebar-rooms {
+    display: none;
+  }
+  .room-card.rooms__row-card {
+    max-width: calc(50% - 20px);
+  }
+
+}

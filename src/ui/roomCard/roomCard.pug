@@ -2,7 +2,7 @@ include ../carousel/carousel.pug
 
 mixin roomCard(options)
   - const {number, isLux, price, rate, images, recallsAmount} = options || {};
-  .room-card
+  .room-card(class!= attributes.class)
     +carousel(images)(class="room-card__carousel")
     .room-card__info 
       .room-card__info-row

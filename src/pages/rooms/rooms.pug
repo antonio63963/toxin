@@ -39,8 +39,8 @@ include ./components/sidebarRooms/sidebarRooms.pug
 +appPageLayout 
   main.rooms
     //- +dualRangeInput({min: 0, max: 150, valueMin: 0, valueMax: 150})
-    +sidebarRooms()(class="rooms__sidebar")
+    +sidebarRooms()
     section.rooms__row
       each val, index in rooms_data 
-        +roomCard(val)
+        +roomCard(val)(class='rooms__row-card')
       
