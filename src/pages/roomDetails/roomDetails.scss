@@ -1,1 +1,7 @@
 @import "../../ui/index.scss";
+
+.roomDetails {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+}

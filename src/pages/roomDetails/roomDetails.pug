@@ -2,7 +2,9 @@ include ../../ui/layouts/appPageLayout.pug
 include ../../ui/header/header.pug
 include ../../ui/footer/footer.pug
 include ../../ui/voiceChart/voiceChart.pug
+include ./components/roomHeadline/roomHeadline.pug
 
 +appPageLayout 
     main.roomDetails
+      +roomHeadline()
       +voiceChart()

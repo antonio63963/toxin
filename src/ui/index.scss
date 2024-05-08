@@ -24,12 +24,14 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 main {
   width: 100vw;
   display: flex;
   justify-content: center;
+  max-width: $app-width;
 }
 
 h1 {

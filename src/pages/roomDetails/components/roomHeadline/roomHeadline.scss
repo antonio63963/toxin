@@ -1,0 +1,48 @@
+@import '../../../../common/mediaqueries.scss';
+
+.room-headline {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  max-height: 485px;
+  // overflow-x: hidden;
+
+  &__main-photo {
+    display: flex;
+    flex-grow: 2;
+  }
+  &__column {
+    max-width: 33%;
+    display: flex;
+    flex-direction: column;
+    flex: 2 1 auto;
+  }
+  &__secondary-photo {
+    height: 50%;
+    
+  }
+  &__main-photo>img {
+    width: 100%;
+    object-fit: cover;
+  }
+  &__secondary-photo>img{
+    object-fit: cover;
+    max-width: auto;
+  }
+
+}
+
+@include tablet {
+  .room-headline {
+    flex-direction: column;
+    max-height: 100%;
+
+    &__column {
+      max-width: 100%;
+      flex-direction: row;
+    }
+    &__secondary-photo>img{
+      max-width: 100%;
+    }
+  }
+}
