@@ -1,0 +1,16 @@
+include ../../../../ui/calendar_picker/calendar_picker.pug
+include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
+
+mixin offerForm() 
+  .offerForm(class!= attributes.class)
+    .offerForm__top-row 
+      .offerForm__number-status 
+        span №
+        h3.offerForm__number 888
+        span.offerForm__status люкс
+      .offerForm__price 
+        span.offerForm__price-value 9 990₽
+        span.offerForm__price-for в сутки
+    
+    +calendar-picker()(class="offerForm__date")
+    +guestsSelect({title: 'гости'})(class="offerForm__guests")  

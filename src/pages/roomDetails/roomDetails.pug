@@ -5,6 +5,7 @@ include ../../ui/voiceChart/voiceChart.pug
 include ./components/roomHeadline/roomHeadline.pug
 include ./components/roomInfo/roomInfo.pug
 include ./components/roomImpressions/roomImpressions.pug
+include ./components/offerForm/offerForm.pug
 
 +appPageLayout 
   main.roomDetails
@@ -13,4 +14,4 @@ include ./components/roomImpressions/roomImpressions.pug
       .roomDetails__content-row
         +roomInfo()
         +roomImpressions()
-    //- +voiceChart()
+      +offerForm()

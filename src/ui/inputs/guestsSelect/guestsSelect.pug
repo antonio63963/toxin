@@ -8,7 +8,7 @@ mixin guestsSelect(options)
       label: title,
        defaultValue: "3 гостя, 1 младенец", 
        inputClass: "sidebar-rooms__guests-input"
-    })(class="sidebar-rooms__guests")
+    })(class="sidebar-rooms__guests")(class!=attributes.class)
     +dropdownInputListAmount([
     {title: 'Взрослые', className: "adults-amount"},
     {title: 'Дети', className: "children-amount"},

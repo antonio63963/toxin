@@ -1,0 +1,52 @@
+@import "../../../../common/variables.scss";
+@import "../../../../ui/calendar_picker/calendar_picker.scss";
+
+.offerForm {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px 30px 30px;
+  box-shadow: 0 0 25px 0 $color-black-25;
+  border-radius: $radius;
+  width: 380px;
+  &__top-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  &__number-status {
+    display: flex;
+    align-items: flex-end;
+  }
+  &__number-status > span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__number {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 8px;
+    line-height: 24px;
+  }
+  &__number-status > &__status {
+    font-size: 12px;
+    font-weight: bold;
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-black-50;
+    margin-right: 4px;
+  }
+  &__price-for {
+    font-size: 12px;
+    font-weight: normal;
+    color: $color-black-50;
+  }
+  &__guests {
+    margin-top: 20px;
+  }
+}
