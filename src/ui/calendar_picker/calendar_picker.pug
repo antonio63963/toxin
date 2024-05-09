@@ -1,17 +1,17 @@
 mixin calendar-picker()
   mixin date-picker(label)
-    .date-picker__select(class!= attributes.class)
-      .date-picker__select_label= label
-      .date-picker__select_field
-        span.date-picker__select_date ДД.ММ.ГГГГ
-        img(src=require("../../assets/svg/expand_more.svg"))
+    .date-picker__select.show-hide-calendar(class!= attributes.class)
+      .date-picker__select_label.show-hide-calendar= label
+      .date-picker__select_field.show-hide-calendar
+        span.date-picker__select_date.show-hide-calendar ДД.ММ.ГГГГ
+        img.show-hide-calendar(src=require("../../assets/svg/expand_more.svg"))
 
   mixin weekDay(day)
     .calendar__week_day= day
 
   include ../buttons/buttons.pug
 
-  .date-picker 
+  .date-picker.show-hide-calendar 
     +date-picker('Прибытие')(class="arive")
     +date-picker('Выезд')(class="leave")
     .calendar.calendar-hide

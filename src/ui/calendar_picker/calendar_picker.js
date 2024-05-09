@@ -255,7 +255,7 @@ function onClean() {
 
 function showCalendar(e) {
   console.log(e.target)
-  if (e.target.classList.contains("date-picker")) {
+  if (e.target.classList.contains("show-hide-calendar")) {
     calendar.classList.toggle("calendar-hide");
   }
 }
@@ -273,3 +273,6 @@ cleanButton.addEventListener("click", onClean);
 submitButton.addEventListener("click", submitCalendar);
 
 insertDates(selectedYear, selectedMonth);
+
+
+console.log('CALENDAR PICKER!!!======')
