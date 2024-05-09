@@ -113,14 +113,14 @@ div.date-container__selected-date {
 }
 .date-container__start {
   border-radius: 100px 0 0 100px;
-  background: var(--opacity-gradient);
+  background: $opacity-gradient;
 }
 .date-container__finish {
   border-radius: 0 100px 100px 0;
-  background: var(--opacity-gradient);
+  background: $opacity-gradient;
 }
 .date_container__living-day {
-  background: var(--opacity-gradient);
+  background: $opacity-gradient;
 }
 
 .calendar__buttons-row {
