@@ -1,0 +1,39 @@
+@import '../../../../common/variables.scss';
+
+.roomInfo {
+  display: flex;
+  flex-direction: column;
+  max-width: 291px;
+  h3 {
+    font-size: 19px;
+  }
+  &__list {
+  }
+  &__list-item {
+    cursor: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    padding: 20px 0 17px 0;
+    border: 1px solid $color-black-5;
+    border-width: 0 0 1px 0;
+
+  }
+  &__item-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+  }
+  &__item-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: $color-black-75;
+    line-height: 24px;
+  }
+  &__item-text {
+    text-transform: none;
+    font-size: 14px;
+    color: $color-black-75;
+    line-height: 24px;
+  }
+}

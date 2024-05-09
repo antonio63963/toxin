@@ -3,8 +3,12 @@ include ../../ui/header/header.pug
 include ../../ui/footer/footer.pug
 include ../../ui/voiceChart/voiceChart.pug
 include ./components/roomHeadline/roomHeadline.pug
+include ./components/roomInfo/roomInfo.pug
 
 +appPageLayout 
-    main.roomDetails
-      +roomHeadline()
-      +voiceChart()
+  main.roomDetails
+    +roomHeadline()
+    .roomDetails__content 
+      +roomInfo()
+      
+    +voiceChart()

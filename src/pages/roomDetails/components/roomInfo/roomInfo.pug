@@ -1,0 +1,20 @@
+
+mixin roomInfo()
+  .roomInfo
+    h3 Сведения о номере
+    ul.roomInfo__list
+      li.roomInfo__list-item
+        img(src=require('../../assets/svg/comfort.svg') alt="info-icon")
+        .roomInfo__item-column
+          h4.roomInfo__item-title Комфорт
+          p.roomInfo__item-text Шумопоглощающие стены
+      li.roomInfo__list-item
+        img(src=require('../../assets/svg/location_city.svg') alt="info-icon")
+        .roomInfo__item-column
+          h4.roomInfo__item-title Удобство
+          p.roomInfo__item-text Окно в каждой из спален
+      li.roomInfo__list-item
+        img(src=require('../../assets/svg/whatshot.svg') alt="info-icon")
+        .roomInfo__item-column
+          h4.roomInfo__item-title Уют
+          p.roomInfo__item-text Номер оснащён камином
