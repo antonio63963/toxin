@@ -3,6 +3,7 @@
 .roomInfo {
   display: flex;
   flex-direction: column;
+  width: 291px;
   max-width: 291px;
   h3 {
     font-size: 19px;
@@ -10,7 +11,7 @@
   &__list {
   }
   &__list-item {
-    cursor: auto;
+    cursor: default;
     display: flex;
     align-items: flex-start;
     justify-content: start;

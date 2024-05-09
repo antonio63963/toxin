@@ -1,0 +1,19 @@
+include ../../../../ui/voiceChart/voiceChart.pug
+mixin roomImpressions()
+  .impressions 
+    h3 Впечатления от номера
+    .impressions__row
+      +voiceChart()
+      ul.impressions__list
+        li.impressions__list-item
+          .impressions__color.impressions__excellent 
+          span.impressions__text Великолепно
+        li.impressions__list-item
+          .impressions__color.impressions__good
+          span.impressions__text Хорошо
+        li.impressions__list-item
+          .impressions__color.impressions__normal
+          span.impressions__text Удовлетворительно
+        li.impressions__list-item
+          .impressions__color.impressions__confused
+          span.impressions__text Разочарован

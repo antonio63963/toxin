@@ -5,6 +5,12 @@
   flex-direction: column;
   margin-top: 70px;
   &__content {
+    display: flex;
+    width: 100%;
     padding: clamp(30px, 7rem, 70px );
+  }
+  &__content-row {
+    display: flex;
+    justify-content: space-between;
   }
 }
