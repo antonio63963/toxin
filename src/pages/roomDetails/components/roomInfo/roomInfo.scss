@@ -1,4 +1,4 @@
-@import '../../../../common/variables.scss';
+@import "../../../../common/variables.scss";
 
 .roomInfo {
   display: flex;
@@ -15,15 +15,19 @@
     display: flex;
     align-items: flex-start;
     justify-content: start;
-    padding: 20px 0 17px 0;
+    padding: 20px 0 ;
     border: 1px solid $color-black-5;
     border-width: 0 0 1px 0;
-
+  }
+  .roomInfo__img-wrapper {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
   }
   &__item-column {
     display: flex;
     flex-direction: column;
-    margin-left: 14px;
+    margin-left: 10px;
   }
   &__item-title {
     font-size: 14px;

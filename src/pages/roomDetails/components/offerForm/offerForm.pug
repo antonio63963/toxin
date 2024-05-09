@@ -1,9 +1,10 @@
 include ../../../../ui/calendar_picker/calendar_picker.pug
 include ../../../../ui/inputs/guestsSelect/guestsSelect.pug
+include ../../../../ui/buttons/buttons.pug
 
 mixin offerForm() 
   .offerForm(class!= attributes.class)
-    .offerForm__top-row 
+    .offerForm__top-row
       .offerForm__number-status 
         span №
         h3.offerForm__number 888
@@ -14,3 +15,24 @@ mixin offerForm()
     
     +calendar-picker()(class="offerForm__date")
     +guestsSelect({title: 'гости'})(class="offerForm__guests")  
+    .offerForm__row 
+      span.offerForm__row-text 9 990₽ х 4 суток
+      span.offerForm__row-text 39 960₽
+    .offerForm__row 
+      .offerForm__row-text-wrapper
+        span.offerForm__row-text Сбор за услуги: скидка 2 179₽
+        img(src=require("../../assets/svg/info.svg"), alt="info-icon")
+      span.offerForm__row-text 0₽
+    .offerForm__row 
+      .offerForm__row-text-wrapper
+        span.offerForm__row-text Сбор за дополнительные услуги
+        img(src=require("../../assets/svg/info.svg"), alt="info-icon")
+      span.offerForm__row-text 300₽
+
+    .offerForm__top-row.total
+      h3.offerForm__total итого
+      .offerForm__dotted-line 
+      h3.offerForm__total 38 081₽
+
+    +filledButton('забронировать', '#')(class="offerForm__submit")
+    

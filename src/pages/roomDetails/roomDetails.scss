@@ -5,9 +5,11 @@
   flex-direction: column;
   margin-top: 70px;
   &__content {
+    width: 100%;
+    justify-content: space-between;
     display: flex;
     width: 100%;
-    padding: clamp(30px, 7rem, 70px );
+    padding: clamp(20px, 7rem, 70px) clamp(30px, 14.4rem, 140px );
   }
   &__content-row {
     display: flex;

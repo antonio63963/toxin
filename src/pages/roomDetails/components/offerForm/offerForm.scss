@@ -4,7 +4,7 @@
 .offerForm {
   display: flex;
   flex-direction: column;
-  padding: 40px 30px 30px 30px;
+  padding: 44px 30px 30px 30px;
   box-shadow: 0 0 25px 0 $color-black-25;
   border-radius: $radius;
   width: 380px;
@@ -13,7 +13,17 @@
     width: 100%;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 22px;
+  }
+  &__row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 20px;
+  }
+  &__date {
+    margin-bottom: 0;
   }
   &__number-status {
     display: flex;
@@ -47,6 +57,38 @@
     color: $color-black-50;
   }
   &__guests {
-    margin-top: 20px;
+    margin: 20px 0;
   }
+  &__row-text {
+    font-size: 14px;
+    color: $color-black-75;
+    font-weight: normal;
+    line-height: 24px;
+  }
+  &__row-text-wrapper {
+    width: 239px;
+    display: flex;
+    align-items: start;
+  }
+  &__row-text-wrapper>img {
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+  &__total {
+    font-size: 19px;
+    text-transform: capitalize;
+  }
+  &__dotted-line {
+    // width: 100%;
+    flex-grow: 3;
+    border: 1px dotted $color-black-25;
+    border-width: 0 0 1px 0;
+  }
+  &__submit {
+    margin-top: 5px;
+  }
+}
+
+.total {
+  margin-top: 10px;
 }
