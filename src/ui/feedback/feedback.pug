@@ -1,0 +1,14 @@
+mixin feedback(options)
+  - const {img, name, timeAgo, text, likesAmount} = options || {};
+  .feedback(class!=attributes.class)
+    .feedback__row 
+      .feedback__avatar
+        img.feedback__avatar-img(src=require(`../../assets/img/users/${img}.jpg`))
+      .feedback__info 
+        h4.feedback__client-name= name 
+        .feedback__timeAgo= timeAgo 
+    .feedback__row.feedback__content
+      .feedback__likes 
+        img.feedback__likes-icon(src=require("../../assets/svg/favorite.svg")) 
+        span.feedback__likes-amount= likesAmount
+      p.feedback__text= text 

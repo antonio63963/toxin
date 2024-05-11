@@ -1,0 +1,23 @@
+@import '../../../../common/variables.scss';
+@import  '../../../../ui/feedback/feedback.scss';
+
+.reviews {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: clamp(16px, 1.9rem, 19px);
+  }
+  &__amount {
+    font-size: 14px;
+    line-height: 14px;
+    color: $color-black-50;
+  }
+  &__feedback {
+    margin: 22px 0;
+  }
+}

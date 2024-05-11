@@ -1,4 +1,5 @@
 @import "../../../../common/variables.scss";
+@import "../../../../common/mediaqueries.scss";
 @import "../../../../ui/calendar_picker/calendar_picker.scss";
 
 .offerForm {
@@ -8,6 +9,7 @@
   box-shadow: 0 0 25px 0 $color-black-25;
   border-radius: $radius;
   width: 380px;
+  margin-left: 30px;
   &__top-row {
     display: flex;
     width: 100%;
@@ -91,4 +93,12 @@
 
 .total {
   margin-top: 10px;
+}
+
+@include mobileXS {
+  .offerForm {
+    margin-left: 0;
+    max-width: 320px;
+    padding: 24px 16px 16px 16px;
+  }
 }

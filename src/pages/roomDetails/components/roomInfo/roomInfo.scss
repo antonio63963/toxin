@@ -1,9 +1,11 @@
 @import "../../../../common/variables.scss";
+@import "../../../../common/mediaqueries.scss";
+
 
 .roomInfo {
   display: flex;
   flex-direction: column;
-  width: 291px;
+  width:50%;
   max-width: 291px;
   h3 {
     font-size: 19px;
@@ -24,6 +26,9 @@
     height: 48px;
     padding: 5px;
   }
+  .roomInfo__img-wrapper>img {
+    object-fit: contain;
+  }
   &__item-column {
     display: flex;
     flex-direction: column;
@@ -40,5 +45,10 @@
     font-size: 14px;
     color: $color-black-75;
     line-height: 24px;
+  }
+}
+@include mobileXS {
+  .roomInfo {
+    width: 100%;
   }
 }

@@ -1,4 +1,5 @@
 @import "../../../../common/variables.scss";
+@import "../../../../common/mediaqueries.scss";
 @import "../../../../ui/voiceChart/voiceChart.scss";
 
 .impressions {
@@ -42,5 +43,18 @@
   }
   &__confused {
     background: $confused-gradient;
+  }
+}
+
+@include mobileXS {
+  .impressions {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    &__row {
+      justify-content: center;
+    }
   }
 }

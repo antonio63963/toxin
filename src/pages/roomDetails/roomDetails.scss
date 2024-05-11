@@ -1,4 +1,5 @@
 @import "../../ui/index.scss";
+@import "../../common/mediaqueries.scss";
 
 .roomDetails {
   display: flex;
@@ -11,8 +12,25 @@
     width: 100%;
     padding: clamp(20px, 7rem, 70px) clamp(30px, 14.4rem, 140px );
   }
-  &__content-row {
+  &__content-block {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+
+@include desctop {
+  .roomDetails__content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .roomDetails__offerForm {
+    margin: 50px 0;
+  }
+}
+@include mobileXS {
+  .roomDetails__content-block {
+    flex-direction: column;
+    align-items: center;
   }
 }

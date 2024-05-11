@@ -1,4 +1,4 @@
-@import '../../../../common/mediaqueries.scss';
+@import "../../../../common/mediaqueries.scss";
 
 .room-headline {
   max-width: 100%;
@@ -19,17 +19,15 @@
   }
   &__secondary-photo {
     height: 50%;
-    
   }
-  &__main-photo>img {
+  &__main-photo > img {
     width: 100%;
     object-fit: cover;
   }
-  &__secondary-photo>img{
+  &__secondary-photo > img {
     object-fit: cover;
     max-width: auto;
   }
-
 }
 
 @include tablet {
@@ -41,8 +39,21 @@
       max-width: 100%;
       flex-direction: row;
     }
-    &__secondary-photo>img{
+    &__secondary-photo > img {
       max-width: 100%;
     }
+  }
+}
+
+@include mobileXS {
+  .room-headline__column {
+    flex-direction: column;
+  }
+  .room-headline__column img{
+    object-fit: cover;
+    width: 100%;
+  }
+  .room-headline__secondary-photo {
+    height: 100%;
   }
 }
