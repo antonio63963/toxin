@@ -10,14 +10,27 @@
     justify-content: space-between;
     display: flex;
     width: 100%;
-    padding: clamp(20px, 7rem, 70px) clamp(30px, 14.4rem, 140px );
+    padding: clamp(20px, 7rem, 70px) clamp(30px, 14.4rem, 140px);
+  }
+  &__column {
+    max-width: 60%;
   }
   &__content-block {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+  }
+  &__row-edditional {
+    width: 100%;
+    display: flex;
+  }
+  &__rules,
+  &__cancel {
+    width: 50%;
+  }
+  &__cancel {
+    margin-left: 70px;
   }
 }
-
 
 @include desctop {
   .roomDetails__content {
