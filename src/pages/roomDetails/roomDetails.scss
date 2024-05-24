@@ -11,6 +11,8 @@
     display: flex;
     width: 100%;
     padding: clamp(20px, 7rem, 70px) clamp(30px, 14.4rem, 140px);
+    padding-bottom: clamp(20px, 6rem, 62px);
+    
   }
   &__column {
     max-width: 60%;
