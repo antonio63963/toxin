@@ -17,4 +17,21 @@ include ./components/reviews/reviews.pug
           +roomInfo()
           +roomImpressions()
         +reviews() 
+        .roomDetails__row-edditional
+          section.roomDetails__rules 
+            h2.roomDetails__rules-title Правила
+            ul.roomDetails__rules-list
+              li.roomDetails__rules-item 
+                .roomDetails__rules-dot 
+                span.roomDetails__rules-text Нельзя с питомцами
+              li.roomDetails__rules-item 
+                .roomDetails__rules-dot 
+                span.roomDetails__rules-text Без вечеринок и мероприятий
+              li.roomDetails__rules-item 
+                .roomDetails__rules-dot 
+                span.roomDetails__rules-text Время прибытия — после 13:00, а выезд до 12:00
+
+          section.roomDetails__cancel 
+            h2.roomDetails__cancel-title Отмена
+            p.roomDetails__cancel-text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
       +offerForm()(class="roomDetails__offerForm")
