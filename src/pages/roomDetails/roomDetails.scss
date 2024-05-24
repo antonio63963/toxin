@@ -23,7 +23,6 @@
   &__row-edditional {
     margin-top: 32px;
     max-width: 100%;
-
     display: flex;
   }
   &__rules-title {
@@ -48,7 +47,6 @@
   }
   &__rules-text,
   &__cancel-text {
-    
     line-height: 24px;
     color: $color-black-75;
     text-transform: none;
@@ -66,7 +64,7 @@
     margin-left: clamp(30px, 8rem, 80px);
   }
   &__cancel-text {
-    width: 340px;
+    width: clamp(240px, 340px, 34rem);
   }
 }
 
@@ -79,9 +77,23 @@
     margin: 50px 0;
   }
 }
+@include mobile {
+  .roomDetails__content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
 @include mobileXS {
   .roomDetails__content-block {
     flex-direction: column;
     align-items: center;
+  }
+  .roomDetails__row-edditional {
+    flex-direction: column;
+  }
+  .roomDetails__cancel {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
 }

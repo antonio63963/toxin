@@ -100,9 +100,15 @@
   margin-bottom: 20px;
 }
 
-@include mobileXS {
+@include desctop {
   .offerForm {
     margin-left: 0;
+
+  }
+}
+
+@include mobileXS {
+  .offerForm {
     max-width: 320px;
     padding: 24px 16px 16px 16px;
   }

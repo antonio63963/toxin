@@ -48,6 +48,8 @@
 @include mobileXS {
   .room-headline__column {
     flex-direction: column;
+    width: 100%;
+    background-color: #ffa654;
   }
   .room-headline__column img{
     object-fit: cover;
